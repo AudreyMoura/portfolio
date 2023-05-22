@@ -43,7 +43,7 @@ header .nav_header ul {
 header .nav_header li a {       
         width: 0px;
         height: 0px;
-        color: #fff;
+        color: #332C39;
         font-size: 1.3rem;   
 }
 
@@ -55,6 +55,11 @@ header .nav_header li a::after {
     display: block;
     transition: .9s ;
 }
+
+header a:active {  
+  color: #C92C6D;  
+}
+
 
 
 /* Seção das imagens */
@@ -188,7 +193,281 @@ header .nav_header li a::after {
   }
   
   
+/* Seção Sobre Mim */
 
+
+.about-me {
+  padding: 40px;
+  background-color: #f8f8f8;
+  padding: 40px;    
+  font-family: 'Poppins';
+}
+
+.tit-ab {
+  font-size: 42px;
+  padding: 10px;
+  color: #333; 
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+  /*CARD AB*/
+  .card-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 0 auto;  
+  }
+
+      .card {
+        width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+      }
+      
+      .card img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin: 0 auto 20px;
+      }
+      
+      .card h2 {
+        font-size: 24px;
+        margin-bottom: 5px;
+      }
+      
+      .card p {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 10px;
+      }
+      
+      .social-links {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 20px;
+      }
+      
+      .social-links li {
+        display: inline-block;
+        margin-right: 10px;
+      }
+      
+      .social-links a {
+        color: #609EA2;
+        font-size: 24px;
+      }
+
+      .social-links li a:hover {
+        color: #609EA2;
+      }
+      
+      .social-links li a:hover i {
+        transform: scale(1.2);
+      }
+      
+
+
+.ab-container2 {
+  display: flex;
+  padding: 10px;
+}
+
+
+.column {
+  width: 45%;
+  padding: 80px;
+  background-color: #f8f8f8;
+}
+
+.ab-h2{
+  font-size: 24px;
+  color: #333;  
+}
+
+.ab-h3 {
+  text-align: center;
+  font-size: 32px;
+  color: #333;  
+}
+
+.ab-h4 {
+  padding: 10px;
+  text-align: left;
+  font-size: 21px;
+  color: #fff;  
+  margin: 20px 0;
+  background-color: #C92C6D;
+
+}
+
+.ab-p {
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 50px;
+}
+
+.interesses {
+  text-align: left;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 50px;
+}
+
+
+/*BARRA DE PROGRESSO*/
+
+.skill-bars {  
+  width: 350px;
   
+}
+
+.skill-bars .bar {
+  margin: 20px 0;
+}
+
+.skill-bars .bar:first-child {
+  margin-top: 0px;
+}
+
+.skill-bars .bar .info {
+  margin-bottom: 5px;
+}
+
+.skill-bars .bar .info span {
+  font-weight: 500;
+  font-size: 17px;
+  opacity: 0;
+  animation: showText 0.5s 1s linear forwards;
+}
+
+@keyframes showText {
+  100% {
+    opacity: 1;
+  }
+}
+
+.skill-bars .bar .progress-line {
+  height: 10px;
+  width: 100%;
+  background: #f0f0f0;
+  position: relative;
+  transform: scaleX(0);
+  transform-origin: left;
+  border-radius: 10px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05),
+    0 1px rgba(255, 255, 255, 0.8);
+  animation: animate 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+}
+
+@keyframes animate {
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.bar .progress-line span {
+  height: 100%;
+  position: absolute;
+  border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: #609EA2;
+  animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+}
+
+.bar .progress-line.html span {
+  width: 75%;
+}
+
+.bar .progress-line.design span {
+  width: 80%;
+}
+
+.bar .progress-line.javascript span {
+  width: 50%;
+}
+
+.bar .progress-line.elementor span {
+  width: 80%;
+}
+
+.bar .progress-line.rd span {
+  width: 50%;
+}
+
+.progress-line span::before {
+  position: absolute;
+  content: "";
+  top: -10px;
+  right: 0;
+  height: 0;
+  width: 0;
+  border: 7px solid transparent;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-color: #000;
+  opacity: 0;
+  animation: showText2 0.5s 1.5s linear forwards;
+}
+
+.progress-line span::after {
+  position: absolute;
+  top: -28px;
+  right: 0;
+  font-weight: 500;
+  background: #000;
+  color: #fff;
+  padding: 1px 4px;
+  font-size: 12px;
+  border-radius: 3px;
+  opacity: 0;
+  animation: showText2 0.5s 1.5s linear forwards;
+}
+
+@keyframes showText2 {
+  100% {
+    opacity: 1;
+  }
+}
+
+.progress-line.html span::after {
+  content: "75%";
+}
+
+.progress-line.design span::after {
+  content: "80%";
+}
+
+.progress-line.javascript span::after {
+  content: "50%";
+}
+
+.progress-line.elementor span::after {
+  content: "80%";
+}
+
+.progress-line.rd span::after {
+  content: "55%";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+ 
   
   
