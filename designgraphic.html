@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audrey R. Moura | Graphic Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- SEU CSS ORIGINAL INTEGRAL --- */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+
+        * { padding: 0px; margin: 0; box-sizing: border-box; list-style: none; text-decoration: none; }
+        body { max-width: 1200px; margin: 0 auto; background-color: #ffffff; font-family: 'Poppins'; }
+
+        header { padding: 10px; display: flex; align-items: center; justify-content: space-around; }
+        header .logo { width: 10%; }
+        header .nav_header ul { display: flex; gap: 30px; align-items: center; color: #332C39; }
+        header .nav_header li a { color: #332C39; font-size: 1.3rem; position: relative; }
+        header .nav_header li a::after { content: ''; width: 0px; height: 4px; background: #C92C6D; display: block; transition: .9s; }
+        header .nav_header li a:hover::after { width: 100%; }
+        header a:active { color: #C92C6D; }
+
+        main { background-color: #f8f8f8; padding: 40px; }
+        .container { max-width: 600px; margin: 0 auto; }
+        .container h1 { font-size: 24px; color: #333; margin-bottom: 20px; text-align: center; }
+        .container p { font-size: 16px; color: #666; margin-bottom: 10px; text-align: center; }
+
+        footer { background-color: #f9f9f9; padding: 20px; text-align: center; }
+        .social-list { list-style: none; padding: 0; margin: 0; }
+        .social-list li { display: inline-block; margin-right: 10px; }
+        .social-list li a { display: inline-block; padding: 5px; background-color: #fff; transition: 0.3s; }
+        .social-list li a:hover { background-color: #FFFF00; }
+        .social-list li a img { width: 30px; height: 30px; }
+
+        /* --- NOVA GALERIA MASONRY (MODIFICAÇÃO SOLICITADA) --- */
+        .gallery-wrapper {
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .gallery {
+            column-count: 3; /* 3 colunas no desktop */
+            column-gap: 15px;
+            width: 100%;
+        }
+
+        .image-item {
+            display: inline-block; /* Importante para o Masonry */
+            width: 100%;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .image-item img {
+            width: 100%;
+            height: auto; /* MANTÉM PROPORÇÃO ORIGINAL */
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .image-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .image-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Lightbox para não perder o foco na arte */
+        #lightbox {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.9);
+            display: none; justify-content: center; align-items: center; z-index: 9999;
+        }
+        #lightbox img { max-width: 90%; max-height: 90vh; object-fit: contain; }
+
+        /* Responsividade da Galeria */
+        @media (max-width: 900px) { .gallery { column-count: 2; } }
+        @media (max-width: 600px) { .gallery { column-count: 1; } }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <img class="logo" src="Source/Logo_90x90.png" alt="Logo">
+        <nav class="nav_header">            
+            <ul>            
+                <li><a href="index.html">Home</a></li>
+                <li><a href="AboutMe.html">About</a></li>             
+            </ul>           
+        </nav>        
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Graphic Design Section</h1>
+            <p>Daily crafting graphic designs, creating social media assets and digital artworks.</p>
+            <p>Hope you all enjoy it!</p>
+        </div>
+    </main>
+
+    <div class="gallery-wrapper">
+        <div class="gallery">
+            <div class="image-item"><img src="Source/design/imagem5.png"></div>
+            <div class="image-item"><img src="Source/design/imagem6.png"></div>
+            <div class="image-item"><img src="Source/design/imagem7.png"></div>
+            <div class="image-item"><img src="Source/design/imagem8.png"></div>
+            <div class="image-item"><img src="Source/design/imagem9.png"></div>
+            <div class="image-item"><img src="Source/design/imagem10.png"></div>
+            <div class="image-item"><img src="Source/design/imagem11.png"></div>
+            <div class="image-item"><img src="Source/design/imagem12.png"></div>
+            <div class="image-item"><img src="Source/design/imagem13.png"></div>
+            <div class="image-item"><img src="Source/design/imagem14.png"></div>
+            <div class="image-item"><img src="Source/design/imagem15.png"></div>
+            <div class="image-item"><img src="Source/design/imagem16.png"></div>
+            <div class="image-item"><img src="Source/design/imagem17.png"></div>
+            <div class="image-item"><img src="Source/design/imagem18.jpg"></div>
+            <div class="image-item"><img src="Source/design/imagem19.jpg"></div>
+            <div class="image-item"><img src="Source/design/imagem20.jpg"></div>
+            <div class="image-item"><img src="Source/design/imagem21.jpg"></div>
+            <div class="image-item"><img src="Source/design/imagem23.jpg"></div>
+            <div class="image-item"><img src="Source/design/imagem30.jpg"></div>
+            <div class="image-item"><img src="Source/design/imagem31.jpg"></div>
+            <div class="image-item"><img src="Source/design/imagem34.jpg"></div>
+            <div class="image-item"><img src="Source/design/imagem35.jpg"></div>
+            <div class="image-item"><img src="Source/design/imagem36.jpg"></div>
+            <div class="image-item"><img src="Source/design/imagem37.jpg"></div>
+            <div class="image-item"><img src="Source/design/imagem39.jpg"></div>
+            <div class="image-item"><img src="Source/design/imagem42.jpg"></div>
+            <div class="image-item"><img src="Source/design/imagem44.jpg"></div>
+        </div>
+    </div>
+
+    <div id="lightbox"><img src=""></div>
+
+    <footer>
+        <ul class="social-list">
+            <li><a href="https://www.instagram.com/audrey_dsgn/"><img src="Source/instagram.png"></a></li>
+            <li><a href="https://www.behance.net/audreydemour"><img src="Source/behance.png"></a></li>
+        </ul>
+        <p class="footer-text">audreydesign.service@outlook.com</p>
+        <p class="footer-copyright">&copy; 2026 por Audrey R. Moura.</p>
+    </footer>
+
+    <script>
+        const lb = document.getElementById('lightbox');
+        const lbImg = lb.querySelector('img');
+        document.querySelectorAll('.image-item').forEach(item => {
+            item.onclick = () => {
+                lbImg.src = item.querySelector('img').src;
+                lb.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            };
+        });
+        lb.onclick = () => {
+            lb.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        };
+    </script>
+</body>
+</html>
