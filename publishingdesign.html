@@ -1,118 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audrey R. Moura | Design Graphic </title>
+    <title>Audrey R. Moura | Editorial Design</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <style>
+        /* CSS ESPECÍFICO DA SEÇÃO EDITORIAL - RESPEITANDO O PADRÃO */
+        body {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .editorial-section {
+            padding: 40px 20px;
+        }
+
+        /* ANIMAÇÃO TYPEWRITER NO TÍTULO */
+        .editorial-header {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .editorial-header h2 {
+            font-family: 'Courier New', Courier, monospace;
+            color: #332C39;
+            display: inline-block;
+            border-right: 3px solid #609EA2;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 3s steps(25, end) forwards;
+        }
+
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+
+        /* NOVA DIV EDITORIAL-INTRO ESTILO LIVRO */
+        .editorial-intro {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            padding: 40px;
+            background: #fff;
+            border: 1px solid #f0f0f0;
+            box-shadow: 15px 15px 0px #f9f9f9; /* Sombra sólida que lembra camadas de papel */
+            text-align: center;
+        }
+
+        /* Detalhe de "Capítulo" ou "Página" */
+        .editorial-intro::before {
+            content: "CHAPTER 00 / ARCHIVE";
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: #609EA2;
+            font-weight: bold;
+        }
+
+        .editorial-intro p {
+            font-size: 15px;
+            color: #444;
+            line-height: 1.8;
+            margin: 0;
+            font-style: italic; /* Toque editorial de citação/prefácio */
+        }
+
+        .editorial-intro strong {
+            color: #609EA2;
+            font-style: normal;
+            font-family: 'Courier New', Courier, monospace;
+            background: #f4fbfc;
+            padding: 0 5px;
+        }
+
+        .lang-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #609EA2, transparent);
+            width: 60%;
+            margin: 30px auto;
+            position: relative;
+        }
+
+        /* Ícone de pena ou livro no divisor */
+        .lang-divider::after {
+            content: "\f518"; /* Ícone de pena do FontAwesome */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 0 15px;
+            color: #609EA2;
+            font-size: 14px;
+        }
+
+        /* GALERIA CENTRALIZADA */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px;
+            justify-items: center;
+        }
+
+        .image {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .image:hover { transform: translateY(-5px); }
+
+        /* LIGHTBOX */
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            text-align: center;
+        }
+
+        .lightbox-content img {
+            max-width: 90vw;
+            max-height: 80vh;
+            border: 3px solid #fff;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+
+        .close-btn {
+            background: #609EA2;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-family: 'Poppins';
+            font-weight: 800;
+            cursor: pointer;
+            margin-bottom: 20px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .close-btn:hover { background: #332C39; }
+
+        @media (max-width: 768px) {
+            .editorial-intro { padding: 40px 20px; width: 90%; }
+            .gallery { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 
 <body>
-    <Header>
-      <img class ="logo" src="Source/Logo_90x90.png" alt="bg1">
+    <header>
+      <img class="logo" src="Source/Logo_90x90.png" alt="logo">
       <nav class="nav_header">            
           <ul>            
               <li><a href="index.html">Home</a></li>
               <li><a href="AboutMe.html">About</a></li>             
           </ul>           
       </nav>        
-    </Header>
-    
-    
-    
-    <div class="gallery">
-        <div class="image">
-          <img src="Source/publishing/img (1).png" alt="Imagem 1">
+    </header>
+
+    <section class="editorial-section">
+        <div class="editorial-header">
+            <h2><i class="fas fa-pen-nib"></i> EDITORIAL ARCHIVE</h2>
         </div>
-        <div class="image">
-          <img src="Source/publishing/img (2).png" alt="Imagem 2">
+
+        <div class="editorial-intro">
+            <p>A curated selection of older editorial projects. These works explore typography and grid layouts from my early design studies. <strong>(Legacy Projects)</strong></p>
+            
+            <div class="lang-divider"></div>
+            
+            <p>Uma seleção de projetos editoriais antigos. Estes trabalhos exploram tipografia e grids desenvolvidos durante meus primeiros estudos de design. <strong>(Projetos Antigos)</strong></p>
         </div>
-        <div class="image">
-          <img src="Source/publishing/img (3).png" alt="Imagem 3">
+        
+        <div class="gallery">
+            <script>
+                for(let i=1; i<=24; i++) {
+                    document.write(`
+                        <div class="image" onclick="openLightbox('Source/publishing/img (${i}).png')">
+                            <img src="Source/publishing/img (${i}).png" alt="Editorial ${i}" style="width:100%; display:block;">
+                        </div>
+                    `);
+                }
+            </script>
         </div>
-        <div class="image">
-            <img src="Source/publishing/img (4).png" alt="Imagem 4">
+    </section>
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <button class="close-btn" onclick="closeLightbox()">
+                <i class="fas fa-times"></i> FECHAR JANELA
+            </button>
+            <img id="full-img" src="">
         </div>
-        <div class="image">
-          <img src="Source/publishing/img (5).png" alt="Imagem 5">
-        </div>
-        <div class="image">
-          <img src="Source/publishing/img (6).png" alt="Imagem 6">
-        </div>
-        <div class="image">
-          <img src="Source/publishing/img (7).png" alt="Imagem 6">
-        </div>
-        <div class="image">
-          <img src="Source/publishing/img (8).png" alt="Imagem 6">
-        </div>
-        <div class="image">
-          <img src="Source/publishing/img (9).png" alt="Imagem 6">
-        </div>
-        <div class="image">
-          <img src="Source/publishing/img (10).png" alt="Imagem 6">
-        </div>
-        <div class="image">
-          <img src="Source/publishing/img (11).png" alt="Imagem 6">
-        </div>
-        <div class="image">
-          <img src="Source/publishing/img (12).png" alt="Imagem 6">
-        </div>
-        <div class="image">
-          <img src="Source/publishing/img (13).png" alt="Imagem 6">
-        </div>
-        <div class="image">
-          <img src="Source/publishing/img (14).png" alt="Imagem 6">
-        </div>
-        <div class="image">
-          <img src="Source/publishing/img (15).png" alt="Imagem 6">
-        </div>
-        <div class="image">
-          <img src="Source/publishing/img (16).png" alt="Imagem 6">
-        </div>
-        <div class="image">
-          <img src="Source/publishing/img (17).png" alt="Imagem 6">
-        </div>
-        <div class="image">
-          <img src="Source/publishing/img (18).png" alt="Imagem 6">
-        </div>
-        <div class="image">
-          <img src="Source/publishing/img (19).png" alt="Imagem 6">
-        </div>
-        <div class="image">
-          <img src="Source/publishing/img (20).png" alt="Imagem 6">
-        </div>
-        <div class="image">
-          <img src="Source/publishing/img (21).png" alt="Imagem 6">
-        </div>
-        <div class="image">
-          <img src="Source/publishing/img (22).png" alt="Imagem 6">
-        </div>
-        <div class="image">
-          <img src="Source/publishing/img (23).png" alt="Imagem 6">
-        </div>
-        <div class="image">
-          <img src="Source/publishing/img (24).png" alt="Imagem 6">
-        </div>
-          
-      </div>
+    </div>
       
-      <footer>
+    <footer>
         <ul class="social-list">
             <li><a href="https://www.instagram.com/audrey_dsgn/"><img src="Source/instagram.png" alt="Instagram"></a></li>
             <li><a href="https://www.behance.net/audreydemour"><img src="Source/behance.png" alt="Behance"></a></li>
             <li><a href="https://www.youtube.com/channel/UCQ7PlqPLt1R9LoKpAuic_qw"><img src="Source/youtube.png" alt="YouTube"></a></li>
-          </ul>
-          
+        </ul>
         <p class="footer-text">audreydesign.service@outlook.com</p>
-        
-        <p class="footer-copyright">
-          &copy; 2023 por Audrey R. Moura.
-        </p>
-      </footer>    
-    <script src="js/script.js"></script>      
-    
-</body>
+        <p class="footer-copyright">&copy; 2023 por Audrey R. Moura.</p>
+    </footer>
 
+    <script>
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const fullImg = document.getElementById('full-img');
+            fullImg.src = src;
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") closeLightbox();
+        });
+    </script>
+</body>
 </html>
