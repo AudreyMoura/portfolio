@@ -4,81 +4,296 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audrey R. Moura | Design Graphic </title>
+    <title>Audrey R. Moura | Web Design & UI</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <style>
+        /* PADRÃO GERAL */
+        body {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* INTRODUÇÃO BROWSER */
+        .web-intro {
+            text-align: center;
+            margin: 40px auto 60px;
+            padding: 0 20px;
+        }
+
+        .browser-mockup {
+            border: 2px solid #eee;
+            border-radius: 8px;
+            max-width: 850px;
+            margin: 0 auto;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .browser-header {
+            background: #f1f1f1;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot.red { background: #ff5f56; }
+        .dot.yellow { background: #ffbd2e; }
+        .dot.green { background: #27c93f; }
+        
+        .browser-address {
+            background: #fff;
+            flex-grow: 1;
+            margin-left: 15px;
+            border-radius: 4px;
+            font-size: 11px;
+            padding: 4px 10px;
+            color: #999;
+            text-align: left;
+            font-family: monospace;
+            border: 1px solid #e0e0e0;
+        }
+
+        .browser-content {
+            padding: 50px 20px;
+            background: #fff;
+            position: relative;
+        }
+
+        .browser-content h1 {
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 900;
+            color: #332C39;
+            margin-bottom: 15px;
+        }
+
+        .browser-content p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* GALERIA */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+            justify-items: center;
+        }
+
+        .image {
+            width: 100%;
+            position: relative;
+            border-radius: 6px;
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+            background: #fff;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .image::before {
+            content: "project_view.html";
+            display: block;
+            background: #f1f1f1;
+            padding: 6px 15px;
+            font-size: 10px;
+            font-family: monospace;
+            color: #888;
+            border-bottom: 1px solid #eee;
+        }
+
+        .image.featured { border: 2px solid #609EA2; }
+        .image.featured::before { content: "LIVE_SITE: saga_das_estrelas"; color: #609EA2; font-weight: bold; }
+
+        .image:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+        }
+
+        .wb-image img { width: 100%; display: block; }
+
+        .image-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(51, 44, 57, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .image:hover .image-overlay { opacity: 1; }
+
+        .view-btn {
+            background: #609EA2;
+            color: white;
+            padding: 10px 20px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        /* LIGHTBOX / EXPANDIR */
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 85vh;
+            border: 2px solid white;
+            border-radius: 4px;
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: #609EA2;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Poppins';
+        }
+
+        @media (max-width: 768px) {
+            .gallery { grid-template-columns: 1fr; }
+            .browser-address { display: none; }
+            .close-lightbox { top: -45px; width: 100%; text-align: center; }
+        }
+    </style>
 </head>
 
 <body>
-    <Header>
-      <img class ="logo" src="Source/Logo_90x90.png" alt="bg1">
+    <header>
+      <img class="logo" src="Source/Logo_90x90.png" alt="logo">
       <nav class="nav_header">            
           <ul>            
               <li><a href="index.html">Home</a></li>
               <li><a href="AboutMe.html">About</a></li>             
           </ul>           
       </nav>        
-    </Header>
+    </header>
 
-    <main>
-      <div class="container">
-        <h1>Landing Page Project</h1>
-        <p> 
-          Clique nas imagens para ser redirecionado ao projeto Pronto</p>
-      </div>
+    <main class="web-intro">
+        <div class="browser-mockup">
+            <div class="browser-header">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+                <div class="browser-address">https://audreydesign.portfolio/web-projects</div>
+            </div>
+            <div class="browser-content">
+                <h1>Web Design & UI Development</h1>
+                <p> 
+                    Do conceito inicial em <strong>Wireframe</strong> à implementação final. 
+                    Abaixo, você encontrará projetos de Landing Pages e sites institucionais.
+                    <br><br>
+                    <small><i class="fas fa-expand"></i> Clique nos cards para expandir ou acessar o site vivo.</small>
+                </p>
+            </div>
+        </div>
     </main>
     
     <section>
-     
-      <div class="gallery">
-        <div class="image">          
-          <a href="#" class="wb-image">
-            <img src="Source/web/wb1.png" alt="web Imagem 1">
-          </a>  
+        <div class="gallery">
+            <div class="image featured">          
+                <a href="https://dev-sagadasestrelas.pantheonsite.io/" class="wb-image" target="_blank">
+                    <img src="Source/web/wb0.png" alt="Saga das Estrelas">
+                    <div class="image-overlay"><span class="view-btn">Acessar Site Vivo <i class="fas fa-external-link-alt"></i></span></div>
+                </a>  
+            </div>
+
+            <div class="image" onclick="openLightbox('Source/web/wb2.png')">
+                <div class="wb-image">
+                    <img src="Source/web/wb2.png" alt="Web Project 2">
+                    <div class="image-overlay"><span class="view-btn">Expandir Design</span></div>
+                </div>
+            </div>
+
+            <div class="image" onclick="openLightbox('Source/web/wb3.png')">
+                <div class="wb-image">
+                    <img src="Source/web/wb3.png" alt="Web Project 3">
+                    <div class="image-overlay"><span class="view-btn">Expandir Design</span></div>
+                </div>
+            </div>
+
+            <div class="image" onclick="openLightbox('Source/web/web4.png')">
+                <div class="wb-image">
+                    <img src="Source/web/web4.png" alt="Web Project 4">
+                    <div class="image-overlay"><span class="view-btn">Expandir Design</span></div>
+                </div>
+            </div>
+
+            <div class="image" onclick="openLightbox('Source/web/web5.png')">
+                <div class="wb-image">
+                    <img src="Source/web/web5.png" alt="Web Project 5">
+                    <div class="image-overlay"><span class="view-btn">Expandir Design</span></div>
+                </div>
+            </div>
         </div>
-        <div class="image">
-          <a href="#" class="wb-image">
-            <img src="Source/web/wb2.png" alt="web Imagem 2">
-          </a>
-        </div>
-        <div class="image">
-          <a href="#" class="wb-image">
-            <img src="Source/web/wb3.png" alt="web Imagem 3">
-          </a>
-        </div>
-        <div class="image">
-          <a href="#" class="wb-image">
-            <img src="Source/web/wb3.png" alt="web Imagem 3">
-          </a>
-        </div>      
-
-
-        
-        
-
-
-
-
-
     </section>
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <button class="close-lightbox" onclick="closeLightbox()">FECHAR</button>
+            <img id="full-img" src="" alt="Full Design">
+        </div>
+    </div>
     
-    
-      
-      <footer>
+    <footer>
         <ul class="social-list">
             <li><a href="https://www.instagram.com/audrey_dsgn/"><img src="Source/instagram.png" alt="Instagram"></a></li>
             <li><a href="https://www.behance.net/audreydemour"><img src="Source/behance.png" alt="Behance"></a></li>
             <li><a href="https://www.youtube.com/channel/UCQ7PlqPLt1R9LoKpAuic_qw"><img src="Source/youtube.png" alt="YouTube"></a></li>
-          </ul>
-          
+        </ul>
         <p class="footer-text">audreydesign.service@outlook.com</p>
-        
-        <p class="footer-copyright">
-          &copy; 2023 por Audrey R. Moura.
-        </p>
-      </footer>    
-    <script src="js/script.js"></script>      
-    
-</body>
+        <p class="footer-copyright">&copy; 2023 por Audrey R. Moura.</p>
+    </footer>
 
+    <script>
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const fullImg = document.getElementById('full-img');
+            fullImg.src = src;
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Trava o scroll
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Destrava o scroll
+        }
+    </script>
+</body>
 </html>
