@@ -22,6 +22,63 @@
             font-family: 'Poppins', sans-serif;
         }
 
+                   /* EFEITO GLITCH NO NOME */
+        .hero-home-motion {
+            text-align: center;
+            padding: 60px 20px 20px;
+            background: #fff;
+        }
+
+        .hero-home-motion h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin: 0;
+            text-transform: uppercase;
+            position: relative;
+            color: #332C39;
+            text-shadow: 2px 2px #609EA2, -2px -2px #ff6b6b;
+            animation: glitch 3s infinite alternate;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px #609EA2, -2px -2px #ff6b6b; }
+            100% { text-shadow: -2px -2px #609EA2, 2px 2px #ff6b6b; }
+        }
+
+        /* INTRODUÇÃO COM ÍCONES ANIMADOS */
+        .design-icons-motion {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            color: #6b6b6b;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 30px auto 30px;
+            padding: 0 20px;
+        }
+
+        .design-icons-motion {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .design-icons-motion i {
+            font-size: 2rem;
+            color: #609EA2;
+            animation: bounce 2s infinite ease-in-out;
+        }
+
+        .design-icons-motion i:nth-child(2) { animation-delay: 0.3s; color: #ff6b6b; }
+        .design-icons-motion i:nth-child(3) { animation-delay: 0.6s; color: #ffbd2e; }
+        .design-icons-motion i:nth-child(4) { animation-delay: 0.9s; }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
         /* FIRULAS NO TEXTO DE INTRODUÇÃO */
         .video-intro {
             text-align: center;
@@ -44,7 +101,6 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 25px;
-            margin-top: 40px;
             text-align: left;
         }
 
@@ -241,9 +297,18 @@
     </header>
 
     <section class="video-section">
-        <div class="video-intro">
-            <h2><i class="fas fa-film"></i> Media & Motion Portfolio</h2>
-            
+
+        <div class="hero-home-motion">
+            <h1>Vídeos & Motion Design</h1>
+            <div class="design-icons-motion">
+                <i class="fas fa-brush"></i>
+                <i class="fas fa-laptop-code"></i>
+                <i class="fas fa-gamepad"></i>
+                <i class="fas fa-video"></i>
+            </div>
+        </div>
+
+        <div class="video-intro">            
             <div class="lang-box">
                 <div class="lang-card">
                     <span class="lang-badge">English</span>
