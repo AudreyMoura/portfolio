@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audrey R. Moura | Video Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <style>
+        /* GALERIA AVANÇADA - FOCO EM PORTFÓLIO DEV */
+        :root {
+            --accent-color: #609EA2; 
+            --text-dark: #333;
+            --transition-speed: 0.4s;
+        }
+
+        .video-section {
+            padding: 100px 20px;
+            background-color: #ffffff; 
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* FIRULAS NO TEXTO DE INTRODUÇÃO */
+        .video-intro {
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .video-intro h2 {
+            font-size: clamp(30px, 6vw, 48px);
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #332C39, var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .video-intro .lang-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .lang-card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #eee;
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.03);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .lang-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .lang-badge {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .lang-card p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .lang-card i {
+            color: var(--accent-color);
+            margin-right: 8px;
+        }
+
+        /* GRID DA GALERIA */
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .video-card {
+            position: relative;
+            cursor: pointer;
+            border-radius: 16px;
+            background: #000;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all var(--transition-speed) cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .video-card:hover {
+            transform: scale(1.03) translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .video-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+            transition: transform var(--transition-speed), opacity var(--transition-speed);
+        }
+
+        .video-card:hover img {
+            transform: scale(1.1);
+            opacity: 0.5;
+        }
+
+        .play-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.1);
+            transition: all var(--transition-speed);
+        }
+
+        .play-button {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .play-button i {
+            color: #fff;
+            font-size: 25px;
+            margin-left: 5px;
+        }
+
+        .video-card:hover .play-button {
+            transform: scale(1.2);
+            background: #fff;
+        }
+
+        .video-card:hover .play-button i {
+            color: var(--accent-color);
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 99999;
+            inset: 0;
+            background: rgba(255,255,255,0.98); 
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            animation: fadeIn 0.4s;
+        }
+
+        .modal-content {
+            position: relative;
+            margin: auto;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            max-width: 1100px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 50px;
+            color: var(--text-dark);
+            cursor: pointer;
+            z-index: 100000;
+            line-height: 1;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .video-intro .lang-box { grid-template-columns: 1fr; gap: 15px; }
+            .modal { padding: 10px; }
+            .close-modal { top: 10px; right: 20px; font-size: 40px; }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+      <img class="logo" src="Source/Logo_90x90.png" alt="logo">
+      <nav class="nav_header">            
+          <ul>            
+              <li><a href="index.html">Home</a></li>
+              <li><a href="AboutMe.html">About</a></li>             
+          </ul>           
+      </nav>        
+    </header>
+
+    <section class="video-section">
+        <div class="video-intro">
+            <h2><i class="fas fa-film"></i> Media & Motion Portfolio</h2>
+            
+            <div class="lang-box">
+                <div class="lang-card">
+                    <span class="lang-badge">English</span>
+                    <p><i class="fas fa-check-circle"></i> High-impact video production tailored for social media. These projects showcase advanced skills in <strong>visual rhythm</strong>, composition, and digital storytelling through professional editing workflows.</p>
+                </div>
+                
+                <div class="lang-card">
+                    <span class="lang-badge">Português</span>
+                    <p><i class="fas fa-check-circle"></i> Produção audiovisual de alto impacto para redes sociais. Os projetos refletem domínio em <strong>ritmo visual</strong>, composição e storytelling digital através de fluxos profissionais de edição.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="video-gallery">
+            <div class="video-card" onclick="openVideo('bWNKbEu-6JQ')">
+                <img src="https://img.youtube.com/vi/bWNKbEu-6JQ/maxresdefault.jpg" alt="Video 1">
+                <div class="play-overlay"><div class="play-button"><i class="fas fa-play"></i></div></div>
+            </div>
+
+            <div class="video-card" onclick="openVideo('cv3aeMnolHs')">
+                <img src="https://img.youtube.com/vi/cv3aeMnolHs/maxresdefault.jpg" alt="Video 2">
+                <div class="play-overlay"><div class="play-button"><i class="fas fa-play"></i></div></div>
+            </div>
+
+            <div class="video-card" onclick="openVideo('5UwfjXlBtdk')">
+                <img src="https://img.youtube.com/vi/5UwfjXlBtdk/maxresdefault.jpg" alt="Video 3">
+                <div class="play-overlay"><div class="play-button"><i class="fas fa-play"></i></div></div>
+            </div>
+
+            <div class="video-card" onclick="openVideo('v3tkhx5d_X8')">
+                <img src="https://img.youtube.com/vi/v3tkhx5d_X8/maxresdefault.jpg" alt="Video 4">
+                <div class="play-overlay"><div class="play-button"><i class="fas fa-play"></i></div></div>
+            </div>
+
+            <div class="video-card" onclick="openVideo('y4REmpP48mU')">
+                <img src="https://img.youtube.com/vi/y4REmpP48mU/maxresdefault.jpg" alt="Video 5">
+                <div class="play-overlay"><div class="play-button"><i class="fas fa-play"></i></div></div>
+            </div>
+
+            <div class="video-card" onclick="openVideo('YkQtEqZb7oE')">
+                <img src="https://img.youtube.com/vi/YkQtEqZb7oE/maxresdefault.jpg" alt="Video 6">
+                <div class="play-overlay"><div class="play-button"><i class="fas fa-play"></i></div></div>
+            </div>
+        </div>
+    </section>
+
+    <div id="videoModal" class="modal">
+        <span class="close-modal" onclick="closeVideo()">&times;</span>
+        <div class="modal-content">
+            <div class="video-container" id="videoContainer"></div>
+        </div>
+    </div>
+      
+    <footer>
+        <ul class="social-list">
+            <li><a href="https://www.instagram.com/audrey_dsgn/"><img src="Source/instagram.png" alt="Instagram"></a></li>
+            <li><a href="https://www.behance.net/audreydemour"><img src="Source/behance.png" alt="Behance"></a></li>
+            <li><a href="https://www.youtube.com/channel/UCQ7PlqPLt1R9LoKpAuic_qw"><img src="Source/youtube.png" alt="YouTube"></a></li>
+        </ul>
+        <p class="footer-text">audreydesign.service@outlook.com</p>
+        <p class="footer-copyright">&copy; 2023 por Audrey R. Moura.</p>
+    </footer>
+
+    <script>
+        function openVideo(videoId) {
+            const modal = document.getElementById('videoModal');
+            const container = document.getElementById('videoContainer');
+            container.innerHTML = `<iframe 
+                src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>`;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideo() {
+            const modal = document.getElementById('videoModal');
+            document.getElementById('videoContainer').innerHTML = ''; 
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('videoModal')) closeVideo();
+        }
+    </script>
+</body>
+</html>
