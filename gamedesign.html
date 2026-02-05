@@ -4,55 +4,224 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audrey R. Moura | Design Graphic </title>
+    <title>Audrey R. Moura | Game Design Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <style>
+        :root {
+            --accent-color: #609EA2; 
+            --game-ui-bg: #1a1a1a;
+            --hp-bar: #00ff88;
+            --text-dark: #333;
+        }
+
+        .game-design-section {
+            padding: 60px 20px;
+            background-color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+        }
+
+        /* HUD GAMER REFEITA (SUBSTITUI A GD-OBJECT ANTIGA) */
+        .gd-hud-container {
+            margin: 20px auto 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .gd-object { /* Resetando a posição absoluta do style.css */
+            position: relative !important; 
+            animation: floating 3s infinite ease-in-out !important;
+            height: auto !important;
+            left: auto !important;
+            right: auto !important;
+        }
+
+        .gd-object-shape {
+            width: 280px !important;
+            height: auto !important;
+            background: var(--game-ui-bg) !important;
+            border: 3px solid var(--accent-color) !important;
+            border-radius: 10px !important;
+            padding: 15px !important;
+            color: #fff !important;
+            text-align: left !important;
+            box-shadow: 0 0 20px rgba(96, 158, 162, 0.4) !important;
+            font-family: 'Courier New', Courier, monospace; /* Fonte mais técnica */
+        }
+
+        .hud-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 8px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .hp-bar-bg {
+            width: 100%;
+            height: 10px;
+            background: #333;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+
+        .hp-bar-fill {
+            width: 75%; /* Progresso do curso */
+            height: 100%;
+            background: var(--hp-bar);
+            box-shadow: 0 0 10px var(--hp-bar);
+            animation: loadingBar 2s infinite alternate;
+        }
+
+        .hud-status {
+            font-size: 10px;
+            color: #aaa;
+        }
+
+        /* ANIMAÇÃO DE FLUTUAR */
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes loadingBar {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        /* RESTO DO CONTEÚDO (CONFORME PADRÃO ANTERIOR) */
+        .game-intro h2 {
+            font-size: clamp(30px, 6vw, 48px);
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--text-dark), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 40px;
+        }
+
+        .stage-container {
+            height: 120px;
+            position: relative;
+            max-width: 300px;
+            margin: 0 auto 50px;
+            border-bottom: 4px solid #332C39;
+        }
+
+        .player {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 40px;
+            color: var(--accent-color);
+            animation: jump 0.8s infinite alternate cubic-bezier(0.45, 0.05, 0.55, 0.95);
+        }
+
+        @keyframes jump {
+            0% { bottom: 0; transform: translateX(-50%) scaleY(1); }
+            100% { bottom: 60px; transform: translateX(-50%) scaleY(1.1); }
+        }
+
+        .lang-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            max-width: 1000px;
+            margin: 40px auto;
+            text-align: left;
+        }
+
+        .lang-card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #eee;
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.03);
+        }
+
+        .lang-badge {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .lang-box { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 
 <body>
-    <Header>
-      <img class ="logo" src="Source/Logo_90x90.png" alt="bg1">
+    <header>
+      <img class="logo" src="Source/Logo_90x90.png" alt="logo">
       <nav class="nav_header">            
           <ul>            
               <li><a href="index.html">Home</a></li>
               <li><a href="AboutMe.html">About</a></li>             
           </ul>           
       </nav>        
-    </Header>
-    
-    <div class="gd-object">
-        <div class="gd-object-rope"></div>
-        <div class="gd-object-shape">
-          Coming <span class="soon">Soon</span>
+    </header>
+
+    <section class="game-design-section">
+        
+        <div class="gd-hud-container">
+            <div class="gd-object">
+                <div class="gd-object-shape">
+                    <div class="hud-header">
+                        <span><i class="fas fa-tools"></i> Dev Mode</span>
+                        <span>LVL 01</span>
+                    </div>
+                    <div class="hp-bar-bg">
+                        <div class="hp-bar-fill"></div>
+                    </div>
+                    <div class="hud-status">
+                        STATUS: BUILDING PORTFOLIO...
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-  
-  <div class="gd-content">
-    <img class ="logo" src="Source/Logo_90x90.png" alt="bg1">
-    
-    <p class="gd-message">This section is under construction. Soon, 
-      works and personal projects in UI/UX and other Game Design will be available. 
-      Shoot us an email if you want to get in contact.</p>
-    
-  </div>
-    
-    
-      
-      <footer>
+
+        <div class="game-intro">
+            <h2>Game Design Journey</h2>
+            
+            <div class="stage-container">
+                <div class="player"><i class="fas fa-gamepad"></i></div>
+            </div>
+
+            <div class="lang-box">
+                <div class="lang-card">
+                    <span class="lang-badge">System: English</span>
+                    <p>This section is currently under development. I am honing my skills in the <strong>Game Design course at SENAI</strong>, focusing on mechanics, level design, and immersive storytelling.</p>
+                </div>
+                
+                <div class="lang-card">
+                    <span class="lang-badge">Sistema: Português</span>
+                    <p>Esta sessão está sendo desenvolvida. Atualmente, estou expandindo meus conhecimentos no curso de <strong>Game Design do SENAI</strong>, criando experiências focadas em mecânicas e narrativa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
         <ul class="social-list">
             <li><a href="https://www.instagram.com/audrey_dsgn/"><img src="Source/instagram.png" alt="Instagram"></a></li>
             <li><a href="https://www.behance.net/audreydemour"><img src="Source/behance.png" alt="Behance"></a></li>
             <li><a href="https://www.youtube.com/channel/UCQ7PlqPLt1R9LoKpAuic_qw"><img src="Source/youtube.png" alt="YouTube"></a></li>
-          </ul>
-          
+        </ul>
         <p class="footer-text">audreydesign.service@outlook.com</p>
-        
-        <p class="footer-copyright">
-          &copy; 2023 por Audrey R. Moura.
-        </p>
-      </footer>    
-    <script src="js/script.js"></script>      
-    
-</body>
+        <p class="footer-copyright">&copy; 2023 por Audrey R. Moura.</p>
+    </footer>
 
+    <script src="js/script.js"></script>
+</body>
 </html>
