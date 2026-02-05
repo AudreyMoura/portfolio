@@ -3,73 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">    
     <title>Audrey R. Moura | Portfólio</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <style>
+        /* FUNDO TODO BRANCO E LARGURA TOTAL */
+        body {
+            max-width: 100% !important;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff !important;
+            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+        }
+
+           /* EFEITO GLITCH NO NOME */
+        .hero-home {
+            text-align: center;
+            padding: 60px 20px 20px;
+            background: #fff;
+        }
+
+        .hero-home h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin: 0;
+            text-transform: uppercase;
+            position: relative;
+            color: #332C39;
+            text-shadow: 2px 2px #609EA2, -2px -2px #ff6b6b;
+            animation: glitch 3s infinite alternate;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px #609EA2, -2px -2px #ff6b6b; }
+            100% { text-shadow: -2px -2px #609EA2, 2px 2px #ff6b6b; }
+        }
+
+        /* INTRODUÇÃO COM ÍCONES ANIMADOS */
+        .hero-subtitle {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            color: #6b6b6b;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 10px auto 30px;
+            padding: 0 20px;
+        }
+
+        .design-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .design-icons i {
+            font-size: 2rem;
+            color: #609EA2;
+            animation: bounce 2s infinite ease-in-out;
+        }
+
+        .design-icons i:nth-child(2) { animation-delay: 0.3s; color: #ff6b6b; }
+        .design-icons i:nth-child(3) { animation-delay: 0.6s; color: #ffbd2e; }
+        .design-icons i:nth-child(4) { animation-delay: 0.9s; }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* CONTEÚDO CENTRALIZADO (80%) SEM ESPAÇO ENTRE SESSÕES */
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 80%; 
+            margin: 0 auto 80px;
+            background: #ffffff;
+        }
+
+        .section-row {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            line-height: 0; 
+            display: block;
+            overflow: hidden;
+        }
+
+        .section-row img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: filter 0.3s ease, transform 0.5s ease;
+        }
+
+        .section-row:hover img {
+            filter: brightness(1.05);
+            transform: scale(1.01);
+        }
+
+        /* AJUSTE HEADER E FOOTER PARA FUNDO BRANCO */
+        header, footer {
+            background-color: #ffffff !important;
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                width: 100%; /* Mobile first: ocupa tudo */
+            }
+            .design-icons { gap: 15px; }
+            .design-icons i { font-size: 1.5rem; }
+        }
+    </style>
 </head>
 
 <body>
-    <Header>
-        <img class ="logo" src="Source/Logo_90x90.png" alt="bg1">
+    <header>
+        <img class="logo" src="Source/Logo_90x90.png" alt="logo">
         <nav class="nav_header">            
             <ul>            
                 <li><a href="index.html">Home</a></li>
                 <li><a href="AboutMe.html">About</a></li>             
             </ul>           
         </nav>        
-      </Header>
+    </header>
+    <div class="hero-home">
+        <h1>Audrey R. Moura</h1>
+        <p class="hero-subtitle">
+            Designer Visual com foco em Branding, Web e Criação de Mundos Digitais. 
+            Transformando ideias em experiências que geram impacto.
+        </p>
+        <div class="design-icons">
+            <i class="fas fa-brush"></i>
+            <i class="fas fa-laptop-code"></i>
+            <i class="fas fa-gamepad"></i>
+            <i class="fas fa-video"></i>
+        </div>
+    </div>
 
-    <section class="designgraphic">
-        <a href="designgraphic.html" class="wide-image">
-            <img src="Source/imagem1.png" alt="designgraphic">
-        </a>          
-    </section>
+    <main class="content-wrapper">
+        <a href="designgraphic.html" class="section-row">
+            <img src="Source/imagem1.png" alt="Graphic Design">
+        </a>
 
-    <section class="webdesign">
-        <a href="webdesign.html" class="wide-image">
-            <img src="Source/imagem2.png" alt="webdesign">
-        </a>          
-    </section>
+        <a href="webdesign.html" class="section-row">
+            <img src="Source/imagem2.png" alt="Web Design">
+        </a>
 
-    <section class="brand">
-        <a href="branding.html" class="wide-image">
-            <img src="Source/imagem3.png" alt="branding">
-        </a>          
-    </section>
+        <a href="branding.html" class="section-row">
+            <img src="Source/imagem3.png" alt="Branding">
+        </a>
 
-    <section class="designeditorial">
-        <a href="publishingdesign.html" class="wide-image">
-            <img src="Source/imagem4.png" alt="editorial">
-        </a>          
-    </section>
+        <a href="publishingdesign.html" class="section-row">
+            <img src="Source/imagem4.png" alt="Editorial">
+        </a>
 
-    <section class="gamedesign">
-        <a href="gamedesign.html" class="wide-image">
-            <img src="Source/imagem5.png" alt="editorial">
-        </a>          
-    </section>
+        <a href="gamedesign.html" class="section-row">
+            <img src="Source/imagem5.png" alt="Game Design">
+        </a>
 
-        <section class="gamedesign">
-        <a href="videos.html" class="wide-image">
-            <img src="Source/imagem06.png" alt="editorial">
-        </a>          
-    </section>
+        <a href="videos.html" class="section-row">
+            <img src="Source/imagem06.png" alt="Videos Section">
+        </a>
+    </main>
 
     <footer>
         <ul class="social-list">
             <li><a href="https://www.instagram.com/audrey_dsgn/"><img src="Source/instagram.png" alt="Instagram"></a></li>
             <li><a href="https://www.behance.net/audreydemour"><img src="Source/behance.png" alt="Behance"></a></li>
             <li><a href="https://www.youtube.com/channel/UCQ7PlqPLt1R9LoKpAuic_qw"><img src="Source/youtube.png" alt="YouTube"></a></li>
-          </ul>
-          
+        </ul>
         <p class="footer-text">audreydesign.service@outlook.com</p>
-        
-        <p class="footer-copyright">
-          &copy; 2023 por Audrey R. Moura.
-        </p>
-      </footer>    
-    <script src="js/script.js"></script> 
+        <p class="footer-copyright">&copy; 2023 por Audrey R. Moura.</p>
+    </footer>
 
 </body>
 </html>
