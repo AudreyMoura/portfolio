@@ -37,12 +37,11 @@
             -webkit-text-fill-color: transparent;
             letter-spacing: -1px;
         }
-
+        
         .lang-box {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-top: 40px;
+            gap: 25px; 
             text-align: left;
         }
 
@@ -82,6 +81,63 @@
         .lang-card i {
             color: var(--accent-color);
             margin-right: 8px;
+        }
+
+                   /* EFEITO GLITCH NO NOME */
+        .hero-home-brand {
+            text-align: center;
+            padding: 60px 20px 20px;
+            background: #fff;
+        }
+
+        .hero-home-brand h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin: 0;
+            text-transform: uppercase;
+            position: relative;
+            color: #332C39;
+            text-shadow: 2px 2px #609EA2, -2px -2px #ff6b6b;
+            animation: glitch 3s infinite alternate;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px #609EA2, -2px -2px #ff6b6b; }
+            100% { text-shadow: -2px -2px #609EA2, 2px 2px #ff6b6b; }
+        }
+
+        /* INTRODUÇÃO COM ÍCONES ANIMADOS */
+        .design-icons-brand {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            color: #6b6b6b;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 10px auto 10px;
+            padding: 30px;
+        }
+
+        .design-icons-brand {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+
+        }
+
+        .design-icons-brand i {
+            font-size: 2rem;
+            color: #609EA2;
+            animation: bounce 2s infinite ease-in-out;
+        }
+
+        .design-icons-brand i:nth-child(2) { animation-delay: 0.3s; color: #ff6b6b; }
+        .design-icons-brand i:nth-child(3) { animation-delay: 0.6s; color: #ffbd2e; }
+        .design-icons-brand i:nth-child(4) { animation-delay: 0.9s; }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         /* AJUSTES NA GALERIA DE IMAGENS */
@@ -135,9 +191,21 @@
     </header>
 
     <section class="branding-section">
-        <div class="branding-intro">
-            <h2><i class="fas fa-pen-nib"></i> Branding & Visual Identity</h2>
-            
+        <div class="hero-home-brand">
+            <h1>Identidade de Marcas</h1>
+                <p class="hero-brand-marcas">
+                    Designer Visual com foco em Branding, Web e Criação de Mundos Digitais.<br> 
+                    Transformando ideias em experiências que geram impacto.
+                </p>
+            <div class="design-icons-brand">
+                <i class="fas fa-brush"></i>
+                <i class="fas fa-laptop-code"></i>
+                <i class="fas fa-gamepad"></i>
+                <i class="fas fa-video"></i>
+            </div>
+        </div>
+
+        <div class="branding-intro">            
             <div class="lang-box">
                 <div class="lang-card">
                     <span class="lang-badge">English</span>
