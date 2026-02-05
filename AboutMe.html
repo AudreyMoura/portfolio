@@ -1,152 +1,347 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audrey R. Moura | Portfólio</title>
+    <title>Audrey R. Moura | Sobre Mim</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap');
 
+        /* RESET E VARIÁVEIS PARA O CONTEÚDO NOVO */
+        :root {
+            --accent-pink: #C92C6D;
+            --accent-teal: #609EA2;
+            --dark-text: #332C39;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fcfcfc;
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-text);
+            overflow-x: hidden;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero-home-me {
+            text-align: center;
+            padding: 100px 20px 40px;
+            background: radial-gradient(circle at top right, #fff5f8, transparent);
+        }
+
+        .hero-home-me h1 {
+            font-weight: 900;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            line-height: 0.9;
+            color: var(--dark-text);
+        }
+
+        .hero-home-me h1 span {
+            color: var(--accent-pink);
+            display: block;
+        }
+
+        .design-icons-me {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .design-icons-me i {
+            font-size: 1.8rem;
+            color: var(--accent-teal);
+            transition: 0.3s;
+        }
+
+        .design-icons-me i:hover {
+            transform: scale(1.3) rotate(10deg);
+            color: var(--accent-pink);
+        }
+
+        /* EFEITO GLITCH NO NOME - AJUSTADO PARA ABOUT-GLITCH */
+        .about-glitch {
+            text-align: center;
+            padding: 60px 20px 20px;
+            background: #fff;
+        }
+
+        .about-glitch h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin: 0;
+            text-transform: uppercase;
+            position: relative;
+            color: #332C39;
+            text-shadow: 2px 2px #609EA2, -2px -2px #ff6b6b;
+            animation: glitch 3s infinite alternate;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px #609EA2, -2px -2px #ff6b6b; }
+            100% { text-shadow: -2px -2px #609EA2, 2px 2px #ff6b6b; }
+        }
+
+        /* INTRODUÇÃO COM ÍCONES ANIMADOS */
+        .design-icons-motion {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            color: #6b6b6b;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 30px auto 30px;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .design-icons-motion i {
+            font-size: 2rem;
+            color: #609EA2;
+            animation: bounce 2s infinite ease-in-out;
+        }
+
+        .design-icons-motion i:nth-child(2) { animation-delay: 0.3s; color: #ff6b6b; }
+        .design-icons-motion i:nth-child(3) { animation-delay: 0.6s; color: #ffbd2e; }
+        .design-icons-motion i:nth-child(4) { animation-delay: 0.9s; }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* ===== LAYOUT PRINCIPAL ===== */
+        .main-wrapper {
+            max-width: 1200px;
+            margin: 0 auto 100px;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 60px;
+            padding: 0 20px;
+        }
+
+        /* SIDEBAR PERFIL */
+        .profile-sidebar {
+            position: sticky;
+            top: 40px;
+            height: fit-content;
+            background: #fff;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+            text-align: center;
+        }
+
+        .profile-sidebar img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            border-radius: 20px;
+            object-fit: cover;
+            margin-bottom: 25px;
+            filter: grayscale(20%);
+        }
+
+        .profile-sidebar h2 { font-size: 2rem; font-weight: 800; letter-spacing: -1px; }
+        .profile-sidebar .tag { 
+            background: var(--accent-teal); 
+            color: #fff; 
+            padding: 5px 15px; 
+            border-radius: 50px; 
+            font-size: 0.75rem; 
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .quick-info {
+            margin-top: 35px;
+            text-align: left;
+            border-top: 2px dashed #eee;
+            padding-top: 25px;
+        }
+
+        .quick-info p { margin-bottom: 15px; font-size: 0.9rem; display: flex; align-items: center; gap: 12px; }
+        .quick-info i { color: var(--accent-pink); font-size: 1.1rem; }
+
+        /* ÁREA DE CONTEÚDO */
+        .section-header {
+            font-size: 0.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-pink);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .about-text { 
+            font-size: 1.2rem; 
+            line-height: 1.7; 
+            margin-bottom: 60px;
+            font-weight: 300;
+        }
+
+        .about-text strong { font-weight: 700; color: var(--accent-teal); }
+
+        /* TIMELINE MODERNA */
+        .experience-grid {
+            display: grid;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .timeline-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            border-bottom: 4px solid var(--accent-teal);
+            transition: 0.3s;
+        }
+
+        .timeline-card:hover { transform: translateY(-5px); border-color: var(--accent-pink); }
+        .timeline-card .date { font-weight: 800; color: #ddd; font-size: 1.5rem; display: block; margin-bottom: 10px; }
+        .timeline-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 5px; }
+
+        /* SKILLS MINIMALISTAS */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-item h4 { font-size: 0.85rem; margin-bottom: 10px; text-transform: uppercase; }
+        .progress-base { height: 4px; background: #eee; width: 100%; position: relative; }
+        .progress-fill { height: 100%; background: var(--accent-pink); position: absolute; left: 0; top: 0; }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 900px) {
+            .main-wrapper { grid-template-columns: 1fr; }
+            .profile-sidebar { position: static; }
+            .hero-home-me h1 { font-size: 3rem; }
+        }
+    </style>
+</head>
 <body>
-    <Header>
-        <img class ="logo" src="Source/Logo_90x90.png" alt="bg1">
+
+    <header>
+        <img class="logo" src="Source/Logo_90x90.png" alt="Logo">
         <nav class="nav_header">            
             <ul>            
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#">About</a></li>             
+                <li><a href="AboutMe.html">About</a></li>             
             </ul>           
         </nav>        
-    </Header>
+    </header>
 
-    <section class="AboutMe">
-        <section class="about-me">  
-            <h2 class="tit-ab">SOBRE MIM</h2>
-            <div class="card-top"> 
-                <div class="card">
-                    <img src="Source/me.jpg" alt="Profile Picture">
-                    <div class="card-content">
-                        <h2>Audrey R. Moura</h2>
-                        <p>Designer Gráfico</p>
-                        <p>Localização: São Paulo, Brasil</p>
-                        <ul class="social-links">
-                            <li><a href="https://www.instagram.com/audreydesign" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="https://www.behance.net/audreymoura" target="_blank"><i class="fab fa-behance"></i></a></li>
-                            <li><a href="https://www.youtube.com/audreydesign" target="_blank"><i class="fab fa-youtube"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
+        <div class="about-glitch">
+            <h1>Sobre mim</h1>
+            <div class="design-icons-motion">
+                <i class="fas fa-brush"></i>
+                <i class="fas fa-laptop-code"></i>
+                <i class="fas fa-gamepad"></i>
+                <i class="fas fa-video"></i>
             </div>
-            <div class="ab-container2">
-                <div class="column">
-                    <div class="perfil">
-                        <h4 class="ab-h4">PERFIL</h4>
-                         <p>Meu nome é Audrey, formada em TI
-                        vivendo em São Paulo.
-                        Desenvolvimento Front-End,
-                        produzindo sites de layout
-                        responsivo. Conhecimento em HTML,
-                        CSS, Javascript, WordPress (Elementor).</p>
-                    </div>
-                    <div class="contact">
-                        <h4 class="ab-h4">CONTATO</h4>
-                         <p>Brasileira, 35 anos, solteira. <br>
-                            São Paulo - Brasil<br>
-                            +55-(11) 9.8732-3067<br>
-                            audreycdm@outlook.com <br></p>
-                    </div>
-                    <div class="profissional">
-                        <h4 class="ab-h4">PROFISSIONAL</h4>
-                         <p>2019-Atual &nbsp; &nbsp; FREELANCER <br> Design freelancer.
-                            <br>2017-2019 &nbsp; &nbsp; MLED <br>
-                            Auxiliar Administrativo Comercial</p>
-                    </div>
-                    <div class="interesses">
-                        <h4 class="ab-h4">INTERESSES</h4>
-                        <i class="fa-solid fa-gamepad"></i>
-                        <i class="fa-solid fa-pen-nib"></i>
-                        <i class="fa-solid fa-music"></i>
-                        <i class="fa-solid fa-laptop-code"></i>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="escolar">  
-                        <h4 class="ab-h4">ESCOLARIDADE</h4>
-                        <p>2012 - 2014 - Concluído <br> 
-                            FMU &emsp; &emsp; Gestão em Tecnologia da Informação</p>
-                    </div>
-                    <div class="curso">  
-                        <h4 class="ab-h4">CURSOS & CERTIFICADOS</h4>
-                        <p>2023 - Atual <br> 
-                            Google UX Design Certificate</p>
-                    </div>
-                    <div class="skill">  
-                        <h4 class="ab-h4">SKILLS</h4>                        
-                        <div class="skill-bars">
-                            <div class="bar">
-                            <div class="info">
-                                <span>HTML/CSS</span>
-                            </div>
-                            <div class="progress-line html">
-                                <span></span>
-                            </div>
-                            </div>
-                            <div class="bar">
-                            <div class="info">
-                                <span>Design UI/UX</span>
-                            </div>
-                            <div class="progress-line design">
-                                <span></span>
-                            </div>
-                            </div>
-                            <div class="bar">
-                            <div class="info">
-                                <span>JavaScript</span>
-                            </div>
-                            <div class="progress-line javascript">
-                                <span></span>
-                            </div>
-                            </div>
-                            <div class="bar">
-                            <div class="info">
-                                <span>WordPress/Elementor</span>
-                            </div>
-                            <div class="progress-line elementor">
-                                <span></span>
-                            </div>
-                            </div>
-                            <div class="bar">
-                            <div class="info">
-                                <span>RDStation</span>
-                            </div>
-                            <div class="progress-line rd">
-                                <span></span>
-                            </div>
-                            </div>                            
-                        </div>                          
-                    </div>
-                </div>
-              </div>
-          </section>          
-    </section>
+        </div>
 
-   
+    <main class="main-wrapper">
+        <aside class="profile-sidebar">
+            <img src="Source/me.jpg" alt="Audrey Rose">
+            <h2>Audrey Rose</h2>
+            <p class="tag">Creative Technologist</p>
+            
+            <div class="quick-info">
+                <p><i class="fas fa-fingerprint"></i> Brasileira, 38 anos</p>
+                <p><i class="fas fa-location-dot"></i> São Paulo, SP</p>
+                <p><i class="fas fa-envelope-open"></i> audreycdm@outlook.com</p>
+                <p><i class="fas fa-graduation-cap"></i> Gestão de TI (FMU)</p>
+            </div>
+
+            <div class="social-links" style="margin-top: 30px; display: flex; justify-content: center; gap: 20px;">
+                <a href="https://linkedin.com/in/audreyrosemoura" target="_blank" style="color: var(--dark-text); font-size: 1.3rem;"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.behance.net/audreydemour" target="_blank" style="color: var(--dark-text); font-size: 1.3rem;"><i class="fab fa-behance"></i></a>
+                <a href="https://www.instagram.com/audrey_dsgn/" target="_blank" style="color: var(--dark-text); font-size: 1.3rem;"><i class="fab fa-instagram"></i></a>
+            </div>
+        </aside>
+
+        <article class="content-area">
+            
+            <section>
+                <span class="section-header">Sobre</span>
+                <p class="about-text">
+                    Combinando uma base sólida em <strong>Gestão de TI</strong> com a paixão pelo design visual. Especialista em criar 
+                    <strong>estratégias digitais</strong> que unem performance e estética. Do planejamento de mídias sociais ao 
+                   desenvolvimento de marcas, meu foco é entregar funcionalidade e impacto.
+                </p>
+            </section>
+
+            <section>
+                <span class="section-header">Trajetória</span>
+                <div class="experience-grid">
+                    <div class="timeline-card">
+                        <span class="date">2025</span>
+                        <h3>iRest Brasil</h3>
+                        <p style="font-size: 0.85rem; color: #666;">Analista de Redes Sociais.Estratégia, conteúdo e métricas.</p>
+                    </div>
+                    <div class="timeline-card">
+                        <span class="date">2023</span>
+                        <h3>Nuato Comunicação</h3>
+                        <p style="font-size: 0.85rem; color: #666;">Design de Criativos. Identidades visuais e campanhas digitais.</p>
+                    </div>
+                    <div class="timeline-card">
+                        <span class="date">2019</span>
+                        <h3>Audrey Design</h3>
+                        <p style="font-size: 0.85rem; color: #666;">Web & Brand Designer Freelancer. Landing pages e motion graphics.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <span class="section-header">Skills</span>
+                <div class="skills-container">
+                    <div class="skill-item">
+                        <h4>Pacote Adobe</h4>
+                        <div class="progress-base"><div class="progress-fill" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <h4>Social Media</h4>
+                        <div class="progress-base"><div class="progress-fill" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <h4>Web (WP/Elementor)</h4>
+                        <div class="progress-base"><div class="progress-fill" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <h4>Dev (HTML/CSS)</h4>
+                        <div class="progress-base"><div class="progress-fill" style="width: 75%;"></div></div>
+                    </div>
+                </div>
+            </section>
+
+        </article>
+    </main>
 
     <footer>
         <ul class="social-list">
             <li><a href="https://www.instagram.com/audrey_dsgn/"><img src="Source/instagram.png" alt="Instagram"></a></li>
             <li><a href="https://www.behance.net/audreydemour"><img src="Source/behance.png" alt="Behance"></a></li>
-            <li><a href="https://www.youtube.com/channel/UCQ7PlqPLt1R9LoKpAuic_qw"><img src="Source/youtube.png" alt="YouTube"></a></li>
-          </ul>
-          
-        <p class="footer-text">audreydesign.service@outlook.com</p>
-        
-        <p class="footer-copyright">
-          &copy; 2023 por Audrey R. Moura.
-        </p>
-      </footer>    
-    <script src="js/script.js"></script> 
+        </ul>
+        <p class="footer-text">audreycdm@outlook.com</p>
+        <p class="footer-copyright">&copy; 2026 por Audrey R. Moura.</p>
+    </footer>
 
 </body>
 </html>
