@@ -4,85 +4,151 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audrey R. Moura | Graphic Design</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* --- SEU CSS ORIGINAL INTEGRAL --- */
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+        /* RESET E FUNDO */
+        body {
+            max-width: 100% !important;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff !important;
+            font-family: 'Poppins', sans-serif;
+        }
 
-        * { padding: 0px; margin: 0; box-sizing: border-box; list-style: none; text-decoration: none; }
-        body { max-width: 1200px; margin: 0 auto; background-color: #ffffff; font-family: 'Poppins'; }
+        /* HERO & GLITCH */
+        .hero-design {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: #ffffff;
+        }
 
-        header { padding: 10px; display: flex; align-items: center; justify-content: space-around; }
-        header .logo { width: 10%; }
-        header .nav_header ul { display: flex; gap: 30px; align-items: center; color: #332C39; }
-        header .nav_header li a { color: #332C39; font-size: 1.3rem; position: relative; }
-        header .nav_header li a::after { content: ''; width: 0px; height: 4px; background: #C92C6D; display: block; transition: .9s; }
-        header .nav_header li a:hover::after { width: 100%; }
-        header a:active { color: #C92C6D; }
+        .hero-design h1 {
+            font-weight: 900;
+            font-size: clamp(2.2rem, 7vw, 4.5rem);
+            margin: 0;
+            text-transform: uppercase;
+            color: #332C39;
+            text-shadow: 3px 3px #609EA2, -3px -3px #ff6b6b;
+            animation: glitch 3s infinite alternate;
+        }
 
-        main { background-color: #f8f8f8; padding: 40px; }
-        .container { max-width: 600px; margin: 0 auto; }
-        .container h1 { font-size: 24px; color: #333; margin-bottom: 20px; text-align: center; }
-        .container p { font-size: 16px; color: #666; margin-bottom: 10px; text-align: center; }
+        @keyframes glitch {
+            0% { text-shadow: 3px 3px #609EA2, -3px -3px #ff6b6b; }
+            100% { text-shadow: -3px -3px #609EA2, 3px 3px #ff6b6b; }
+        }
 
-        footer { background-color: #f9f9f9; padding: 20px; text-align: center; }
-        .social-list { list-style: none; padding: 0; margin: 0; }
-        .social-list li { display: inline-block; margin-right: 10px; }
-        .social-list li a { display: inline-block; padding: 5px; background-color: #fff; transition: 0.3s; }
-        .social-list li a:hover { background-color: #FFFF00; }
-        .social-list li a img { width: 30px; height: 30px; }
+        /* ÍCONES DESIGN ANIMADOS */
+        .design-filigrees {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            margin: 25px 0;
+        }
 
-        /* --- NOVA GALERIA MASONRY (MODIFICAÇÃO SOLICITADA) --- */
+        .design-filigrees i {
+            font-size: 2.2rem;
+            color: #609EA2;
+            animation: bounce 2s infinite ease-in-out;
+        }
+
+        .design-filigrees i:nth-child(2) { animation-delay: 0.2s; color: #ff6b6b; }
+        .design-filigrees i:nth-child(3) { animation-delay: 0.4s; color: #ffbd2e; }
+        .design-filigrees i:nth-child(4) { animation-delay: 0.6s; color: #332C39; }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        /* COMPOSIÇÃO DA GALERIA */
         .gallery-wrapper {
-            padding: 20px;
-            background-color: #ffffff;
+            width: 85%; /* Ligeiramente maior para melhor aproveitamento */
+            max-width: 1400px;
+            margin: 0 auto 100px;
+            padding: 0 10px;
         }
 
         .gallery {
-            column-count: 3; /* 3 colunas no desktop */
-            column-gap: 15px;
-            width: 100%;
+            column-count: 3;
+            column-gap: 20px; /* Mais espaço entre as colunas */
         }
 
         .image-item {
-            display: inline-block; /* Importante para o Masonry */
+            display: inline-block;
             width: 100%;
-            margin-bottom: 15px;
-            border-radius: 8px;
+            margin-bottom: 20px; /* Espaço vertical consistente */
+            border-radius: 12px;
             overflow: hidden;
-            transition: all 0.3s ease;
             cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            background: #fff;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
 
         .image-item img {
             width: 100%;
-            height: auto; /* MANTÉM PROPORÇÃO ORIGINAL */
+            height: auto;
             display: block;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease, filter 0.3s ease;
         }
 
+        /* Efeito de Hover Refinado */
         .image-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
         }
 
         .image-item:hover img {
-            transform: scale(1.05);
+            transform: scale(1.04);
+            filter: brightness(1.05);
         }
 
-        /* Lightbox para não perder o foco na arte */
+        /* LIGHTBOX */
         #lightbox {
-            position: fixed; inset: 0; background: rgba(0,0,0,0.9);
-            display: none; justify-content: center; align-items: center; z-index: 9999;
+            position: fixed;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.98); /* Fundo branco levemente transparente para um ar editorial */
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
         }
-        #lightbox img { max-width: 90%; max-height: 90vh; object-fit: contain; }
 
-        /* Responsividade da Galeria */
-        @media (max-width: 900px) { .gallery { column-count: 2; } }
-        @media (max-width: 600px) { .gallery { column-count: 1; } }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 4px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            cursor: zoom-in;
+            transition: transform 0.4s ease;
+        }
 
+        #lightbox img.zoomed {
+            transform: scale(1.4);
+            cursor: zoom-out;
+        }
+
+        .close-lb {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: #332C39;
+            font-size: 35px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .close-lb:hover { color: #ff6b6b; transform: rotate(90deg); }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 1100px) { .gallery { column-count: 2; } }
+        @media (max-width: 700px) { 
+            .gallery { column-count: 1; } 
+            .gallery-wrapper { width: 92%; }
+            .hero-design h1 { font-size: 2.2rem; }
+        }
     </style>
 </head>
 <body>
@@ -97,13 +163,18 @@
         </nav>        
     </header>
 
-    <main>
-        <div class="container">
-            <h1>Graphic Design Section</h1>
-            <p>Daily crafting graphic designs, creating social media assets and digital artworks.</p>
-            <p>Hope you all enjoy it!</p>
+    <section class="hero-design">
+        <h1>Graphic Design</h1>
+        <div class="design-filigrees">
+            <i class="fas fa-pencil-alt"></i>
+            <i class="fas fa-ruler-combined"></i>
+            <i class="fas fa-bezier-curve"></i>
+            <i class="fas fa-palette"></i>
         </div>
-    </main>
+        <div class="container">
+            <p>Daily crafting graphic designs, creating social media assets and digital artworks.</p>
+        </div>
+    </section>
 
     <div class="gallery-wrapper">
         <div class="gallery">
@@ -136,14 +207,13 @@
             <div class="image-item"><img src="Source/design/imagem44.jpg"></div>
             <div class="image-item"><img src="Source/design/imagem45.jpg"></div>
             <div class="image-item"><img src="Source/design/imagem46.jpg"></div>
-            <div class="image-item"><img src="Source/design/imagem47.jpg"></div>
-            <div class="image-item"><img src="Source/design/imagem48.jpg"></div>
-            <div class="image-item"><img src="Source/design/imagem49.jpg"></div>
-            <div class="image-item"><img src="Source/design/imagem50.jpg"></div>
         </div>
     </div>
 
-    <div id="lightbox"><img src=""></div>
+    <div id="lightbox">
+        <span class="close-lb"><i class="fas fa-times"></i></span>
+        <img src="" id="lightbox-img">
+    </div>
 
     <footer>
         <ul class="social-list">
@@ -156,7 +226,9 @@
 
     <script>
         const lb = document.getElementById('lightbox');
-        const lbImg = lb.querySelector('img');
+        const lbImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.close-lb');
+
         document.querySelectorAll('.image-item').forEach(item => {
             item.onclick = () => {
                 lbImg.src = item.querySelector('img').src;
@@ -164,12 +236,24 @@
                 document.body.style.overflow = 'hidden';
             };
         });
-        lb.onclick = () => {
+
+        const closeLB = () => {
             lb.style.display = 'none';
+            lbImg.classList.remove('zoomed');
             document.body.style.overflow = 'auto';
         };
+
+        closeBtn.onclick = closeLB;
+        lb.onclick = (e) => { if(e.target !== lbImg) closeLB(); };
+
+        lbImg.onclick = (e) => {
+            e.stopPropagation();
+            lbImg.classList.toggle('zoomed');
+        };
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") closeLB();
+        });
     </script>
 </body>
-
 </html>
-
