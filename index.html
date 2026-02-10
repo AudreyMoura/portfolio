@@ -2,12 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Audrey R. Moura | Portfólio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     
     <style>
+        /* RESET DE BOX-MODEL PARA EVITAR DESALINHAMENTO */
+        * {
+            box-sizing: border-box;
+        }
+
         /* FUNDO TODO BRANCO E LARGURA TOTAL */
         body {
             max-width: 100% !important;
@@ -16,6 +21,7 @@
             background-color: #ffffff !important;
             overflow-x: hidden;
             font-family: 'Poppins', sans-serif;
+            width: 100%;
         }
 
            /* EFEITO GLITCH NO NOME */
@@ -23,6 +29,7 @@
             text-align: center;
             padding: 60px 20px 20px;
             background: #fff;
+            width: 100%;
         }
 
         .hero-home h1 {
@@ -58,6 +65,7 @@
             justify-content: center;
             gap: 30px;
             margin-bottom: 50px;
+            width: 100%;
         }
 
         .design-icons i {
@@ -105,17 +113,24 @@
             transform: scale(1.01);
         }
 
-        /* AJUSTE HEADER E FOOTER PARA FUNDO BRANCO */
+        /* AJUSTE HEADER E FOOTER */
         header, footer {
             background-color: #ffffff !important;
+            width: 100%;
+            overflow: hidden;
         }
 
         @media (max-width: 768px) {
             .content-wrapper {
-                width: 100%; /* Mobile first: ocupa tudo */
+                width: 100%;
+                padding: 0;
             }
-            .design-icons { gap: 15px; }
+            .design-icons { 
+                gap: 15px; 
+                padding: 0 10px;
+            }
             .design-icons i { font-size: 1.5rem; }
+            .hero-home h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
