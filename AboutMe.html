@@ -10,7 +10,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap');
 
-        /* RESET E VARIÁVEIS PARA O CONTEÚDO NOVO */
+        /* RESET E VARIÁVEIS */
         :root {
             --accent-pink: #C92C6D;
             --accent-teal: #609EA2;
@@ -52,25 +52,7 @@
             display: block;
         }
 
-        .design-icons-me {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .design-icons-me i {
-            font-size: 1.8rem;
-            color: var(--accent-teal);
-            transition: 0.3s;
-        }
-
-        .design-icons-me i:hover {
-            transform: scale(1.3) rotate(10deg);
-            color: var(--accent-pink);
-        }
-
-        /* EFEITO GLITCH NO NOME - AJUSTADO PARA ABOUT-GLITCH */
+        /* EFEITO GLITCH NO NOME */
         .about-glitch {
             text-align: center;
             padding: 60px 20px 20px;
@@ -94,7 +76,7 @@
             100% { text-shadow: -2px -2px #609EA2, 2px 2px #ff6b6b; }
         }
 
-        /* INTRODUÇÃO COM ÍCONES ANIMADOS */
+        /* ÍCONES ANIMADOS */
         .design-icons-motion {
             text-align: center;
             font-family: 'Poppins', sans-serif;
@@ -189,15 +171,16 @@
         }
 
         .about-text { 
-            font-size: 1.2rem; 
-            line-height: 1.7; 
+            font-size: 1.1rem; 
+            line-height: 1.8; 
             margin-bottom: 60px;
             font-weight: 300;
+            text-align: justify;
         }
 
         .about-text strong { font-weight: 700; color: var(--accent-teal); }
 
-        /* TIMELINE MODERNA */
+        /* TIMELINE */
         .experience-grid {
             display: grid;
             gap: 30px;
@@ -215,8 +198,11 @@
         .timeline-card:hover { transform: translateY(-5px); border-color: var(--accent-pink); }
         .timeline-card .date { font-weight: 800; color: #ddd; font-size: 1.5rem; display: block; margin-bottom: 10px; }
         .timeline-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 5px; }
+        .timeline-card ul { margin-top: 10px; list-style: none; }
+        .timeline-card ul li { font-size: 0.85rem; color: #666; margin-bottom: 5px; position: relative; padding-left: 15px; }
+        .timeline-card ul li::before { content: "•"; color: var(--accent-pink); position: absolute; left: 0; }
 
-        /* SKILLS MINIMALISTAS */
+        /* SKILLS */
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -247,27 +233,28 @@
         </nav>        
     </header>
 
-        <div class="about-glitch">
-            <h1>Sobre mim</h1>
-            <div class="design-icons-motion">
-                <i class="fas fa-brush"></i>
-                <i class="fas fa-laptop-code"></i>
-                <i class="fas fa-gamepad"></i>
-                <i class="fas fa-video"></i>
-            </div>
+    <div class="about-glitch">
+        <h1>Sobre mim</h1>
+        <div class="design-icons-motion">
+            <i class="fas fa-brush"></i>
+            <i class="fas fa-laptop-code"></i>
+            <i class="fas fa-bullseye"></i>
+            <i class="fas fa-chart-line"></i>
         </div>
+    </div>
 
     <main class="main-wrapper">
         <aside class="profile-sidebar">
             <img src="Source/me.jpg" alt="Audrey Rose">
             <h2>Audrey Rose</h2>
-            <p class="tag">Creative Technologist</p>
+            <p class="tag">Designer & Marketing Digital</p>
             
             <div class="quick-info">
                 <p><i class="fas fa-fingerprint"></i> Brasileira, 38 anos</p>
                 <p><i class="fas fa-location-dot"></i> São Paulo, SP</p>
                 <p><i class="fas fa-envelope-open"></i> audreycdm@outlook.com</p>
                 <p><i class="fas fa-graduation-cap"></i> Gestão de TI (FMU)</p>
+                <p><i class="fas fa-link"></i> audreymoura.github.io</p>
             </div>
 
             <div class="social-links" style="margin-top: 30px; display: flex; justify-content: center; gap: 20px;">
@@ -280,63 +267,83 @@
         <article class="content-area">
             
             <section>
-                <span class="section-header">Sobre</span>
+                <span class="section-header">Perfil Profissional</span>
                 <p class="about-text">
-                    Combinando uma base sólida em <strong>Gestão de TI</strong> com a paixão pelo design visual. Especialista em criar 
-                    <strong>estratégias digitais</strong> que unem performance e estética. Do planejamento de mídias sociais ao 
-                   desenvolvimento de marcas, meu foco é entregar funcionalidade e impacto.
+                    Sou uma <strong>Designer Gráfica</strong> com formação em <strong>Gestão da Tecnologia da Informação</strong>, o que me permite unir um olhar criativo a uma mentalidade analítica e tecnológica. Com sólida experiência no desenvolvimento de <strong>identidades visuais, peças digitais e campanhas estratégicas</strong>, meu trabalho foca em aliar estética, funcionalidade e resultados de engajamento.<br><br>
+                    
+                    Minha atuação abrange desde o <strong>planejamento de conteúdo</strong> para redes sociais e e-mail marketing até a análise de métricas e suporte em tráfego pago. Tenho vivência na organização de fluxos criativos e controle de demandas, garantindo sempre a <strong>consistência de marca</strong> e o cumprimento rigoroso de prazos. Busco constantemente aplicar conceitos de <strong>UX/UI</strong> para elevar a experiência do usuário em cada entrega.
                 </p>
             </section>
 
             <section>
-                <span class="section-header">Trajetória</span>
+                <span class="section-header">Experiência</span>
                 <div class="experience-grid">
                     <div class="timeline-card">
                         <span class="date">2025</span>
-                        <h3>iRest Brasil</h3>
-                        <p style="font-size: 0.85rem; color: #666;">Analista de Redes Sociais.Estratégia, conteúdo e métricas.</p>
+                        <h3>iRest Brasil — Analista de Redes Sociais</h3>
+                        <ul>
+                            <li>Gestão de publicações e análise de métricas de desempenho.</li>
+                            <li>Criação de peças visuais com foco em engajamento.</li>
+                            <li>Otimização de conteúdo estratégico para campanhas digitais.</li>
+                        </ul>
                     </div>
                     <div class="timeline-card">
                         <span class="date">2023</span>
-                        <h3>Nuato Comunicação</h3>
-                        <p style="font-size: 0.85rem; color: #666;">Design de Criativos. Identidades visuais e campanhas digitais.</p>
+                        <h3>Nuato Comunicação — Designer de Criativos</h3>
+                        <ul>
+                            <li>Desdobramento de Key Visual (KV) para campanhas institucionais.</li>
+                            <li>Padronização de identidade visual e fechamento de arquivos.</li>
+                            <li>Interface direta com equipes para alinhamento de briefings.</li>
+                        </ul>
                     </div>
                     <div class="timeline-card">
                         <span class="date">2019</span>
-                        <h3>Audrey Design</h3>
-                        <p style="font-size: 0.85rem; color: #666;">Web & Brand Designer Freelancer. Landing pages e motion graphics.</p>
+                        <h3>Audrey Design — Web & Brand Designer</h3>
+                        <ul>
+                            <li>Gestão completa de projetos, do briefing à entrega final.</li>
+                            <li>Criação de landing pages e identidades visuais personalizadas.</li>
+                            <li>Aplicação de UX/UI para melhoria de conversão em sites.</li>
+                        </ul>
                     </div>
                 </div>
             </section>
 
             <section>
-                <span class="section-header">Skills</span>
+                <span class="section-header">Habilidades & Ferramentas</span>
                 <div class="skills-container">
                     <div class="skill-item">
-                        <h4>Design Graphics</h4>
+                        <h4>Adobe Suite (Ps, Ai, Id)</h4>
                         <div class="progress-base"><div class="progress-fill" style="width: 90%;"></div></div>
                     </div>
                     <div class="skill-item">
-                        <h4>Social Media</h4>
+                        <h4>Social Media & Branding</h4>
                         <div class="progress-base"><div class="progress-fill" style="width: 85%;"></div></div>
                     </div>
                     <div class="skill-item">
-                        <h4>Web (WP/Elementor)</h4>
+                        <h4>WordPress & RD Station</h4>
                         <div class="progress-base"><div class="progress-fill" style="width: 80%;"></div></div>
                     </div>
                     <div class="skill-item">
-                        <h4>Dev (HTML/CSS)</h4>
-                        <div class="progress-base"><div class="progress-fill" style="width: 45%;"></div></div>
-                    </div>
-                                    <div class="skill-item">
-                    <h4>Marketing Digital</h4>
+                        <h4>Marketing & Métricas</h4>
                         <div class="progress-base"><div class="progress-fill" style="width: 75%;"></div></div>
                     </div>
-
-                                                      <div class="skill-item">
-                    <h4>Trafego Pago</h4>
-                        <div class="progress-base"><div class="progress-fill" style="width: 15%;"></div></div>
+                    <div class="skill-item">
+                        <h4>HTML / CSS / JS</h4>
+                        <div class="progress-base"><div class="progress-fill" style="width: 50%;"></div></div>
                     </div>
+                    <div class="skill-item">
+                        <h4>UX/UI Design</h4>
+                        <div class="progress-base"><div class="progress-fill" style="width: 65%;"></div></div>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin-top: 60px;">
+                <span class="section-header">Formação</span>
+                <div class="timeline-card" style="border-color: var(--accent-pink);">
+                    <h3>Gestão da Tecnologia da Informação</h3>
+                    <p style="font-size: 0.9rem; color: #666;">FMU | Concluído em 2014</p>
+                    <p style="font-size: 0.85rem; margin-top: 10px; color: #888;">Especializações em Design Gráfico (Udemy, Hotmart, Google Academy) e Autocad (Senai).</p>
                 </div>
             </section>
 
