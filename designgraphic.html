@@ -62,17 +62,83 @@
             50% { transform: translateY(-12px); }
         }
 
+                    .hero-tags {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                flex-wrap: wrap;
+                margin: 15px 0 25px;
+            }
+
+            .hero-tags span {
+                font-size: 0.75rem;
+                background: #332C39;
+                color: #fff;
+                padding: 5px 10px;
+                border-radius: 20px;
+                letter-spacing: 0.5px;
+            }
+
+            /* leve melhoria no glitch (menos exagerado) */
+            .hero-home h1 {
+                text-shadow: 1px 1px #609EA2, -1px -1px #ff6b6b;
+            }
+
         /* COMPOSIÇÃO DA GALERIA */
+      
         .gallery-wrapper {
-            width: 85%; /* Ligeiramente maior para melhor aproveitamento */
-            max-width: 1400px;
-            margin: 0 auto 100px;
-            padding: 0 10px;
+            width: 100%;
+            display: block;
+            padding-bottom: 100px;
         }
 
-        .gallery {
-            column-count: 3;
-            column-gap: 20px; /* Mais espaço entre as colunas */
+        .gallery-grid {                
+            column-count: 4;
+            column-gap: 15px;
+            width: 95%;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: left; /* Garante que o texto dos cards não centralize */
+        }
+
+        .project-card {
+            break-inside: avoid;
+            margin-bottom: 15px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .card-image-container {
+            width: 100%;
+            line-height: 0;
+        }
+
+        .card-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .project-card:hover {
+            transform: scale(1.02);
+        }
+
+        .card-footer {
+            padding: 8px 2px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--dark);
+        }
+
+        .card-footer h3 {
+            font-size: 0.85rem;
+            margin: 0;
+            font-weight: 500;
         }
 
         .image-item {
@@ -164,49 +230,54 @@
     </header>
 
     <section class="hero-design">
-        <h1>Graphic Design</h1>
-        <div class="design-filigrees">
-            <i class="fas fa-pencil-alt"></i>
-            <i class="fas fa-ruler-combined"></i>
-            <i class="fas fa-bezier-curve"></i>
-            <i class="fas fa-palette"></i>
-        </div>
-        <div class="container">
-            <p>Daily crafting graphic designs, creating social media assets and digital artworks.</p>
+        <div class="hero-home">
+            <h1>Audrey R. Moura</h1>
+
+            <p class="hero-subtitle">
+                Creative Designer focused on Branding, Social Media and Digital Experiences. <br> 
+                Combining strategy, design and AI-assisted workflows to create content that connects and performs.
+            </p>
+
+            <div class="hero-tags">
+                <span>Social Media</span>
+                <span>Branding</span>
+                <span>Web Design</span>
+                <span>AI-Assisted Workflow</span>
+            </div>
         </div>
     </section>
 
-    <div class="gallery-wrapper">
-        <div class="gallery">
-            <div class="image-item"><img src="Source/design/imagem5.png"></div>
-            <div class="image-item"><img src="Source/design/imagem6.png"></div>
-            <div class="image-item"><img src="Source/design/imagem7.png"></div>
-            <div class="image-item"><img src="Source/design/imagem8.png"></div>
-            <div class="image-item"><img src="Source/design/imagem9.png"></div>
-            <div class="image-item"><img src="Source/design/imagem10.png"></div>
-            <div class="image-item"><img src="Source/design/imagem11.png"></div>
-            <div class="image-item"><img src="Source/design/imagem12.png"></div>
-            <div class="image-item"><img src="Source/design/imagem13.png"></div>
-            <div class="image-item"><img src="Source/design/imagem14.png"></div>
-            <div class="image-item"><img src="Source/design/imagem15.png"></div>
-            <div class="image-item"><img src="Source/design/imagem16.png"></div>
-            <div class="image-item"><img src="Source/design/imagem17.png"></div>
-            <div class="image-item"><img src="Source/design/imagem18.jpg"></div>
-            <div class="image-item"><img src="Source/design/imagem19.jpg"></div>
-            <div class="image-item"><img src="Source/design/imagem20.jpg"></div>
-            <div class="image-item"><img src="Source/design/imagem21.jpg"></div>
-            <div class="image-item"><img src="Source/design/imagem23.jpg"></div>
-            <div class="image-item"><img src="Source/design/imagem30.jpg"></div>
-            <div class="image-item"><img src="Source/design/imagem31.jpg"></div>
-            <div class="image-item"><img src="Source/design/imagem34.jpg"></div>
-            <div class="image-item"><img src="Source/design/imagem35.jpg"></div>
-            <div class="image-item"><img src="Source/design/imagem36.jpg"></div>
-            <div class="image-item"><img src="Source/design/imagem37.jpg"></div>
-            <div class="image-item"><img src="Source/design/imagem39.jpg"></div>
-            <div class="image-item"><img src="Source/design/imagem42.jpg"></div>
-            <div class="image-item"><img src="Source/design/imagem44.jpg"></div>
-            <div class="image-item"><img src="Source/design/imagem45.jpg"></div>
-            <div class="image-item"><img src="Source/design/imagem46.jpg"></div>
+<div class="gallery-wrapper">
+        <div class="gallery-grid">
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem5.png"></div><div class="card-footer"><h3>Concept Art</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem6.png"></div><div class="card-footer"><h3>Branding</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem7.png"></div><div class="card-footer"><h3>Social Media</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem8.png"></div><div class="card-footer"><h3>Graphic</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem9.png"></div><div class="card-footer"><h3>Creative</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem10.png"></div><div class="card-footer"><h3>Digital</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem11.png"></div><div class="card-footer"><h3>Design Piece</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem12.png"></div><div class="card-footer"><h3>Marketing</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem13.png"></div><div class="card-footer"><h3>Layout Art</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem14.png"></div><div class="card-footer"><h3>Content</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem15.png"></div><div class="card-footer"><h3>Visual Art</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem16.png"></div><div class="card-footer"><h3>Concept</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem17.jpg"></div><div class="card-footer"><h3>Creative Art</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem18.jpg"></div><div class="card-footer"><h3>Design</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem19.jpg"></div><div class="card-footer"><h3>Identity</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem20.jpg"></div><div class="card-footer"><h3>Digital Piece</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem21.jpg"></div><div class="card-footer"><h3>Work</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem23.jpg"></div><div class="card-footer"><h3>Social Media</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem30.jpg"></div><div class="card-footer"><h3>Branding Art</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem31.jpg"></div><div class="card-footer"><h3>Visual Flow</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem34.jpg"></div><div class="card-footer"><h3>Campaign</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem35.jpg"></div><div class="card-footer"><h3>Art Direction</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem36.jpg"></div><div class="card-footer"><h3>Social Asset</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem37.jpg"></div><div class="card-footer"><h3>Creative Layout</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem39.jpg"></div><div class="card-footer"><h3>Graphic Art</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem42.jpg"></div><div class="card-footer"><h3>Digital Asset</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem44.jpg"></div><div class="card-footer"><h3>Branding Asset</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem45.png"></div><div class="card-footer"><h3>Design Work</h3><i class="far fa-heart"></i></div></div>
+            <div class="project-card"><div class="card-image-container"><img src="Source/design/imagem46.png"></div><div class="card-footer"><h3>Portfolio Piece</h3><i class="far fa-heart"></i></div></div>
         </div>
     </div>
 
@@ -219,41 +290,29 @@
         <ul class="social-list">
             <li><a href="https://www.instagram.com/audrey_dsgn/"><img src="Source/instagram.png"></a></li>
             <li><a href="https://www.behance.net/audreydemour"><img src="Source/behance.png"></a></li>
+            <li><a href="https://www.youtube.com/channel/UCQ7PlqPLt1R9LoKpAuic_qw"><img src="Source/youtube.png"></a></li>
         </ul>
         <p class="footer-text">audreydesign.service@outlook.com</p>
         <p class="footer-copyright">&copy; 2026 por Audrey R. Moura.</p>
     </footer>
 
-    <script>
+<script>
         const lb = document.getElementById('lightbox');
         const lbImg = document.getElementById('lightbox-img');
         const closeBtn = document.querySelector('.close-lb');
-
-        document.querySelectorAll('.image-item').forEach(item => {
+        document.querySelectorAll('.project-card').forEach(item => {
             item.onclick = () => {
                 lbImg.src = item.querySelector('img').src;
                 lb.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
             };
         });
-
         const closeLB = () => {
             lb.style.display = 'none';
-            lbImg.classList.remove('zoomed');
             document.body.style.overflow = 'auto';
         };
-
         closeBtn.onclick = closeLB;
         lb.onclick = (e) => { if(e.target !== lbImg) closeLB(); };
-
-        lbImg.onclick = (e) => {
-            e.stopPropagation();
-            lbImg.classList.toggle('zoomed');
-        };
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === "Escape") closeLB();
-        });
     </script>
 </body>
 </html>
