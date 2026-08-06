@@ -1,45 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audrey R. Moura | Web Design & UI</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     
     <style>
-        /* PADRÃO GERAL */
-        body {
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            font-family: 'Poppins', sans-serif;
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap');
+
+        /* RESET GERAL */
+        * {
+            box-sizing: border-box;
         }
 
-        /* INTRODUÇÃO BROWSER */
+        body {
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #fafbfc; /* Fundo levemente mais suave para destacar os cards brancos */
+            font-family: 'Poppins', sans-serif;
+            color: #332C39;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 90px;
+            height: auto;
+        }
+
+        .nav_header ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav_header a {
+            text-decoration: none;
+            color: #332C39;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .nav_header a:hover {
+            color: #609EA2;
+        }
+
+        /* INTRO BROWSER MOCKUP */
         .web-intro {
             text-align: center;
             margin: 40px auto 60px;
             padding: 0 20px;
+            max-width: 900px;
         }
 
-        .browser-mockup {
-            border: 2px solid #eee;
-            border-radius: 8px;
-            max-width: 850px;
-            margin: 0 auto;
+        .browser-mockup-main {
+            border: 1px solid #eef0f2;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.04);
+            background: #fff;
         }
 
-        .browser-header {
-            background: #f1f1f1;
-            padding: 10px 15px;
+        .browser-header-main {
+            background: #f8f9fa;
+            padding: 12px 15px;
             display: flex;
             align-items: center;
-            gap: 6px;
-            border-bottom: 2px solid #eee;
+            gap: 8px;
+            border-bottom: 1px solid #eef0f2;
         }
 
         .dot { width: 12px; height: 12px; border-radius: 50%; }
@@ -47,102 +91,182 @@
         .dot.yellow { background: #ffbd2e; }
         .dot.green { background: #27c93f; }
         
-        .browser-address {
+        .browser-address-main {
             background: #fff;
             flex-grow: 1;
             margin-left: 15px;
-            border-radius: 4px;
-            font-size: 11px;
-            padding: 4px 10px;
-            color: #999;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            padding: 6px 12px;
+            color: #888;
             text-align: left;
             font-family: monospace;
-            border: 1px solid #e0e0e0;
+            border: 1px solid #eaeaea;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .browser-content {
-            padding: 50px 20px;
+            padding: 50px 30px;
             background: #fff;
-            position: relative;
         }
 
         .browser-content h1 {
             font-family: 'Courier New', Courier, monospace;
             font-weight: 900;
             color: #332C39;
+            margin-top: 0;
             margin-bottom: 15px;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
         }
 
         .browser-content p {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.6;
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.7;
             max-width: 650px;
             margin: 0 auto;
         }
 
-        /* GALERIA */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 20px;
-            justify-items: center;
+        .browser-content small {
+            display: block;
+            margin-top: 20px;
+            color: #888;
+            font-weight: 500;
         }
 
-        .image {
-            width: 100%;
-            position: relative;
-            border-radius: 6px;
-            border: 1px solid #eee;
-            transition: all 0.3s ease;
-            background: #fff;
+        /* GALERIA - O EFEITO MÁGICO DE SCROLL */
+        section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-bottom: 80px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            padding: 20px 5%;
+        }
+
+        /* Card do Projeto */
+        .card-mockup {
+            background: #ffffff;
+            border-radius: 12px;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            border: 1px solid #eef0f2;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+        }
+
+        .card-mockup:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        /* Topo estilo Janela (Mac) */
+        .card-header {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #eef0f2;
+        }
+
+        .card-header .dots { display: flex; gap: 6px; }
+        .card-header .dot { width: 10px; height: 10px; border-radius: 50%; }
+
+        .card-header .title {
+            margin-left: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85rem;
+            color: #888;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Estilo para projeto em destaque */
+        .card-mockup.featured .card-header {
+            background: rgba(96, 158, 162, 0.08);
+            border-bottom: 1px solid rgba(96, 158, 162, 0.15);
+        }
+        .card-mockup.featured .title {
+            color: #609EA2;
+            font-weight: 700;
+        }
+
+        /* Container da Imagem */
+        .card-image-container {
+            width: 100%;
+            height: 400px; /* Define a altura da vitrine */
+            position: relative;
+            overflow: hidden;
+            display: block;
+            text-decoration: none;
             cursor: pointer;
         }
 
-        .image::before {
-            content: "project_view.html";
-            display: block;
-            background: #f1f1f1;
-            padding: 6px 15px;
-            font-size: 10px;
-            font-family: monospace;
-            color: #888;
-            border-bottom: 1px solid #eee;
+        /* EFEITO DE SCROLL - A Mágica Acontece Aqui */
+        .card-image-scroll {
+            width: 100%;
+            height: 100%;
+            /* A imagem vai ocupar 100% da largura, e a altura será automática para manter a proporção */
+            background-size: 100% auto; 
+            background-position: top center; /* Mostra o topo (hero section) por padrão */
+            background-repeat: no-repeat;
+            /* Tempo de rolagem: ajustado para 4s para simular alguém scrollando o site */
+            transition: background-position 5s ease-in-out; 
         }
 
-        .image.featured { border: 2px solid #609EA2; }
-        .image.featured::before { content: "LIVE_SITE: saga_das_estrelas"; color: #609EA2; font-weight: bold; }
-
-        .image:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+        .card-mockup:hover .card-image-scroll {
+            /* Quando o mouse entra, rola suavemente até o rodapé do site */
+            background-position: bottom center; 
         }
 
-        .wb-image img { width: 100%; display: block; }
-
-        .image-overlay {
+        /* Overlay e Botão */
+        .card-overlay {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(51, 44, 57, 0.8);
+            inset: 0;
+            /* Degradê escuro apenas na parte inferior para o botão ter contraste */
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 50%);
             display: flex;
+            align-items: flex-end;
             justify-content: center;
-            align-items: center;
+            padding-bottom: 30px;
             opacity: 0;
-            transition: 0.3s;
+            transition: opacity 0.4s ease;
         }
 
-        .image:hover .image-overlay { opacity: 1; }
+        .card-mockup:hover .card-overlay {
+            opacity: 1;
+        }
 
-        .view-btn {
+        .btn-acessar {
             background: #609EA2;
-            color: white;
-            padding: 10px 20px;
-            font-size: 12px;
-            font-weight: bold;
-            border-radius: 4px;
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transform: translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), background 0.3s ease;
+        }
+
+        .card-mockup:hover .btn-acessar {
+            transform: translateY(0);
+        }
+
+        .btn-acessar:hover {
+            background: #4a7d80;
         }
 
         /* LIGHTBOX / EXPANDIR */
@@ -150,52 +274,140 @@
             display: none;
             position: fixed;
             z-index: 10000;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95);
-            backdrop-filter: blur(5px);
+            inset: 0;
+            background: rgba(255,255,255, 0.98);
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
 
         .lightbox-content {
             position: relative;
-            max-width: 90%;
-            max-height: 90%;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
+        /* Dentro do lightbox, mostramos a imagem inteira com scroll natural */
+        .lightbox-scroll-area {
+            width: 100%;
+            max-width: 1200px;
+            height: 90vh;
+            overflow-y: auto;
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            background: #fff;
+        }
+        
+        .lightbox-scroll-area::-webkit-scrollbar { width: 8px; }
+        .lightbox-scroll-area::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 8px; }
+        .lightbox-scroll-area::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 8px; }
+        .lightbox-scroll-area::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
+
         .lightbox-content img {
-            max-width: 100%;
-            max-height: 85vh;
-            border: 2px solid white;
-            border-radius: 4px;
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         .close-lightbox {
             position: absolute;
-            top: -50px;
-            right: 0;
-            background: #609EA2;
-            color: white;
+            top: 20px;
+            right: 30px;
+            background: #332C39;
+            color: #fff;
             border: none;
-            padding: 8px 20px;
-            border-radius: 4px;
-            font-weight: bold;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.2rem;
             cursor: pointer;
-            font-family: 'Poppins';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.3s, transform 0.3s;
+            z-index: 10001;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
+        .close-lightbox:hover {
+            background: #ff5f56;
+            transform: scale(1.1);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #fff;
+            border-top: 1px solid #eef0f2;
+        }
+
+        .social-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px;
+        }
+
+        .social-list img {
+            width: 35px;
+            transition: transform 0.3s, filter 0.3s;
+        }
+
+        .social-list a:hover img {
+            transform: translateY(-5px);
+            filter: brightness(1.2);
+        }
+
+        .footer-text, .footer-copyright {
+            margin: 5px 0;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* RESPONSIVIDADE MOBILE-FIRST */
         @media (max-width: 768px) {
-            .gallery { grid-template-columns: 1fr; }
-            .browser-address { display: none; }
-            .close-lightbox { top: -45px; width: 100%; text-align: center; }
+            header {
+                flex-direction: column;
+                justify-content: center;
+            }
+            
+            .browser-content { padding: 30px 15px; }
+            .browser-address-main { font-size: 0.7rem; margin-left: 10px; }
+
+            .gallery { 
+                grid-template-columns: 1fr; 
+                padding: 10px 5%;
+            }
+
+            .card-image-container { 
+                height: 350px; 
+            }
+
+            /* No mobile (onde não tem mouse para fazer o hover do scroll), o botão fica visível */
+            .card-overlay {
+                opacity: 1;
+                background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 40%);
+            }
+            .btn-acessar {
+                transform: translateY(0);
+                padding: 10px 20px;
+                font-size: 0.8rem;
+            }
+            
+            .close-lightbox { top: 10px; right: 10px; }
         }
     </style>
 </head>
 
 <body>
     <header>
-      <img class="logo" src="Source/Logo_90x90.png" alt="logo">
+      <img class="logo" src="Source/Logo_90x90.png" alt="Audrey Design Logo">
       <nav class="nav_header">            
           <ul>            
               <li><a href="index.html">Home</a></li>
@@ -205,65 +417,123 @@
     </header>
 
     <main class="web-intro">
-        <div class="browser-mockup">
-            <div class="browser-header">
+        <div class="browser-mockup-main">
+            <div class="browser-header-main">
                 <div class="dot red"></div>
                 <div class="dot yellow"></div>
                 <div class="dot green"></div>
-                <div class="browser-address">https://audreydesign.portfolio/web-projects</div>
+                <div class="browser-address-main">https://audreydesign.portfolio/web-projects</div>
             </div>
             <div class="browser-content">
-                <h1>Web Design & UI Development</h1>
+                <h1>Web Design & UI</h1>
                 <p> 
                     Do conceito inicial em <strong>Wireframe</strong> à implementação final. 
-                    Abaixo, você encontrará projetos de Landing Pages e sites institucionais.
-                    <br><br>
-                    <small><i class="fas fa-expand"></i> Clique nos cards para expandir ou acessar o site vivo.</small>
+                    Abaixo, você encontrará projetos de Landing Pages e sites institucionais construídos com foco em usabilidade e conversão.
                 </p>
+                <small><i class="fas fa-hand-pointer"></i> Passe o mouse nos cards para explorar os sites inteiros ou clique para acessar.</small>
             </div>
         </div>
     </main>
     
     <section>
         <div class="gallery">
-            <div class="image featured">          
-                <a href="https://dev-sagadasestrelas.pantheonsite.io/" class="wb-image" target="_blank">
-                    <img src="Source/web/wb0.png" alt="Saga das Estrelas">
-                    <div class="image-overlay"><span class="view-btn">Acessar Site Vivo <i class="fas fa-external-link-alt"></i></span></div>
-                </a>  
+            
+            <!-- PROJETO 1: Saga das Estrelas (Destaque) -->
+            <div class="card-mockup featured">
+                <div class="card-header">
+                    <div class="dots">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="title">LIVE_SITE: destaque</div>
+                </div>
+                <a href="http://audreyrmoura.com.br/" class="card-image-container" target="_blank" rel="noopener noreferrer">
+                    <!-- A MÁGICA: Imagem carregada via background. O CSS cuida de rolar para baixo no hover -->
+                    <div class="card-image-scroll" style="background-image: url('Source/web/wb0.png');"></div>
+                    <div class="card-overlay">
+                        <span class="btn-acessar">Acessar Site Vivo <i class="fas fa-external-link-alt"></i></span>
+                    </div>
+                </a>
             </div>
 
-            <div class="image" onclick="openLightbox">          
-                <a href="https://audreymoura.github.io/verttyce/" class="wb-image" target="_blank">
-                    <img src="Source/web/verttyce.png" alt="verttyce">
-                    <div class="image-overlay"><span class="view-btn">Acessar Site Vivo <i class="fas fa-external-link-alt"></i></span></div>
-                </a>  
+            <!-- PROJETO 2: Verttyce -->
+            <div class="card-mockup">
+                <div class="card-header">
+                    <div class="dots">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="title">project_view.html</div>
+                </div>
+                <a href="https://audreymoura.github.io/verttyce/" class="card-image-container" target="_blank" rel="noopener noreferrer">
+                    <div class="card-image-scroll" style="background-image: url('Source/web/verttyce.png');"></div>
+                    <div class="card-overlay">
+                        <span class="btn-acessar">Acessar Site Vivo <i class="fas fa-external-link-alt"></i></span>
+                    </div>
+                </a>
             </div>
 
-            <div class="image" onclick="openLightbox('Source/web/web4.png')">
-                <div class="wb-image">
-                    <img src="Source/web/web4.png" alt="Web Project 4">
-                    <div class="image-overlay"><span class="view-btn">Expandir Design</span></div>
+            <!-- PROJETO 3: Universo Pedro AP -->
+             <div class="card-mockup">
+                <div class="card-header">
+                    <div class="dots">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="title">project_view.html</div>
+                </div>
+                <a href="https://autorpedroap.github.io/universopedroap/" class="card-image-container" target="_blank" rel="noopener noreferrer">
+                    <div class="card-image-scroll" style="background-image: url('Source/web/pedro.png');"></div>
+                    <div class="card-overlay">
+                        <span class="btn-acessar">Acessar Site Vivo <i class="fas fa-external-link-alt"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- PROJETO 4: Expandir no Lightbox -->
+            <div class="card-mockup" onclick="openLightbox('Source/web/web4.png')">
+                <div class="card-header">
+                    <div class="dots">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="title">project_view.html</div>
+                </div>
+                <div class="card-image-container">
+                    <div class="card-image-scroll" style="background-image: url('Source/web/web4.png');"></div>
+                    <div class="card-overlay">
+                        <span class="btn-acessar">Expandir Design <i class="fas fa-expand-arrows-alt"></i></span>
+                    </div>
                 </div>
             </div>
+
         </div>
     </section>
 
+    <!-- LIGHTBOX MODAL -->
     <div id="lightbox" onclick="closeLightbox()">
         <div class="lightbox-content" onclick="event.stopPropagation()">
-            <button class="close-lightbox" onclick="closeLightbox()">FECHAR</button>
-            <img id="full-img" src="" alt="Full Design">
+            <button class="close-lightbox" aria-label="Fechar" onclick="closeLightbox()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="lightbox-scroll-area">
+                <img id="full-img" src="" alt="Design Expandido">
+            </div>
         </div>
     </div>
     
     <footer>
         <ul class="social-list">
-            <li><a href="https://www.instagram.com/audrey_dsgn/"><img src="Source/instagram.png" alt="Instagram"></a></li>
-            <li><a href="https://www.behance.net/audreydemour"><img src="Source/behance.png" alt="Behance"></a></li>
-            <li><a href="https://www.youtube.com/channel/UCQ7PlqPLt1R9LoKpAuic_qw"><img src="Source/youtube.png" alt="YouTube"></a></li>
+            <li><a href="https://www.instagram.com/audrey_dsgn/" target="_blank" rel="noopener"><img src="Source/instagram.png" alt="Instagram"></a></li>
+            <li><a href="https://www.behance.net/audreydemour" target="_blank" rel="noopener"><img src="Source/behance.png" alt="Behance"></a></li>
+            <li><a href="https://www.youtube.com/channel/UCQ7PlqPLt1R9LoKpAuic_qw" target="_blank" rel="noopener"><img src="Source/youtube.png" alt="YouTube"></a></li>
         </ul>
         <p class="footer-text">audreydesign.service@outlook.com</p>
-        <p class="footer-copyright">&copy; 2023 por Audrey R. Moura.</p>
+        <p class="footer-copyright">&copy; 2026 por Audrey R. Moura. Todos os direitos reservados.</p>
     </footer>
 
     <script>
@@ -272,14 +542,37 @@
             const fullImg = document.getElementById('full-img');
             fullImg.src = src;
             lightbox.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Trava o scroll
+            
+            // Animação de entrada
+            lightbox.style.opacity = '0';
+            setTimeout(() => {
+                lightbox.style.transition = 'opacity 0.3s ease';
+                lightbox.style.opacity = '1';
+            }, 10);
+            
+            document.body.style.overflow = 'hidden'; // Trava o scroll da página atrás do lightbox
         }
 
         function closeLightbox() {
             const lightbox = document.getElementById('lightbox');
-            lightbox.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Destrava o scroll
+            lightbox.style.opacity = '0';
+            
+            setTimeout(() => {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Destrava o scroll
+                document.getElementById('full-img').src = ''; // Limpa a imagem
+            }, 300);
         }
+
+        // Fechar com a tecla ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                const lightbox = document.getElementById('lightbox');
+                if (lightbox.style.display === 'flex') {
+                    closeLightbox();
+                }
+            }
+        });
     </script>
 </body>
 </html>
